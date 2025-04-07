@@ -1371,7 +1371,7 @@ function Register({ onSuccess }) {
     setIsLoading(true);
     setError(null);
     try {
-      const { data } = await axios.post('http://localhost:3000/api/verfiy', { email, otp: otpString });
+      const { data } = await axios.post('https://zencia-finalbackend.vercel.app/api/verfiy', { email, otp: otpString });
       console.log("OTP verification API response:", data);
       const token = data.token;
       if (token) localStorage.setItem('authToken', token);
