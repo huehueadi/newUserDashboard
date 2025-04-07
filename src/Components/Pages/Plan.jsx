@@ -343,7 +343,7 @@ const Plan = () => {
   useEffect(() => {
     const fetchPlans = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/license/get-plans");
+        const response = await axios.get("https://zencia-finalbackend.vercel.app/api/license/get-plans");
         setPlans(response.data.allPlans);
         setLoadingPlans(false);
       } catch (err) {
@@ -358,7 +358,7 @@ const Plan = () => {
   useEffect(() => {
     const fetchHardware = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/hardware/hardwares-by-user", {
+        const response = await axios.get("https://zencia-finalbackend.vercel.app/api/hardware/hardwares-by-user", {
           headers: { Authorization: `${token}` },
         });
         setHardwareList(response.data.hardwareList);
@@ -402,7 +402,7 @@ const Plan = () => {
     if (selectedPlanName === "Trial") {
       try {
         const licenseResponse = await axios.post(
-          "http://localhost:3000/api/license/trail-generate",
+          "https://zencia-finalbackend.vercel.app/api/license/trail-generate",
           {
             planId: selectedPlanId,
             hardware_id: effectiveHWID, // Use the effective HWID

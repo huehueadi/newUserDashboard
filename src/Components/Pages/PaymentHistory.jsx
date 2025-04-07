@@ -17,7 +17,7 @@ function PaymentHistory() {
           return;
         }
 
-        const response = await axios.get('http://localhost:3000/api/gateway/get-payments', {
+        const response = await axios.get('https://zencia-finalbackend.vercel.app/api/gateway/get-payments', {
           headers: {
             'Authorization': `${authToken}`
           }

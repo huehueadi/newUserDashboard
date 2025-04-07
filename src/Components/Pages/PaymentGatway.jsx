@@ -162,7 +162,7 @@ function PaymentGateway() {
       setLoading(true);
       console.log('Creating PaymentIntent with planId:', planId, 'hardwareId:', hardwareId);
 
-      const response = await fetch('http://localhost:3000/api/gateway/payment-gateway', {
+      const response = await fetch('https://zencia-finalbackend.vercel.app/api/gateway/payment-gateway', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

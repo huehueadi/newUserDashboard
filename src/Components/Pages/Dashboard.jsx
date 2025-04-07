@@ -2895,7 +2895,7 @@ function Dashboard() {
   
       console.log('Fetching hardware with token:', authToken);
   
-      const response = await axios.get('http://localhost:3000/api/hardware/hardwares-by-user', {
+      const response = await axios.get('https://zencia-finalbackend.vercel.app/api/hardware/hardwares-by-user', {
         headers: {
           'Authorization': `${authToken}`
         }
@@ -2957,7 +2957,7 @@ function Dashboard() {
         return;
       }
 
-      const response = await axios.get('http://localhost:3000/api/hardware/overview', {
+      const response = await axios.get('https://zencia-finalbackend.vercel.app/api/hardware/overview', {
         headers: {
           'Authorization': `${authToken}`
         }
@@ -2969,7 +2969,7 @@ function Dashboard() {
       console.error('Error fetching overview data:', error);
       if (error.response?.status === 401) {
         localStorage.removeItem('authToken');
-        window.location.href = '/login';
+        window.location.href = '/auth/login';
       }
       // Don’t set error state here to avoid affecting hardware list UI
     }
@@ -2995,7 +2995,7 @@ function Dashboard() {
       console.log('Registering hardware with token:', authToken);
       console.log('Hardware data:', { hardwareId: hardwareIdInput, nickName: deviceNameInput });
 
-      const response = await fetch('http://localhost:3000/api/hardware/register', {
+      const response = await fetch('https://zencia-finalbackend.vercel.app/api/hardware/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

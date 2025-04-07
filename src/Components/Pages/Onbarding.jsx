@@ -486,7 +486,7 @@ const Onboarding = ({ onComplete }) => {
     try {
       const token = localStorage.getItem('authToken');
       const response = await axios.post(
-        'http://localhost:3000/api/onboarding',
+        'https://zencia-finalbackend.vercel.app/api/onboarding',
         selectedData,
         { headers: { Authorization: `${token}` } }
       );

@@ -1314,7 +1314,7 @@ function Register({ onSuccess }) {
     try {
       const { credential } = response;
       console.log("Google credential:", credential);
-      const { data } = await axios.post('http://localhost:3000/api/google-auth', { token: credential });
+      const { data } = await axios.post('https://zencia-finalbackend.vercel.app/api/google-auth', { token: credential });
       console.log('Google login successful', data);
       localStorage.setItem('authToken', data.token);
       setSuccessMessage('Google registration successful');
@@ -1330,7 +1330,7 @@ function Register({ onSuccess }) {
     console.log("Form submitted for registration");
     setIsLoading(true);
     try {
-      const { data } = await axios.post('http://localhost:3000/api/register', {
+      const { data } = await axios.post('https://zencia-finalbackend.vercel.app/api/register', {
         email, password, firstName, lastName, mobileNumber, city, state, country,
       });
       console.log("Registration API response:", data);

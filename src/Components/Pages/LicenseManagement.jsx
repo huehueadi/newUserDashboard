@@ -17,7 +17,7 @@ function LicenseManagement() {
           return;
         }
 
-        const response = await axios.get('http://localhost:3000/api/gateway/get-licenses', {
+        const response = await axios.get('https://zencia-finalbackend.vercel.app/api/gateway/get-licenses', {
           headers: {
             'Authorization': `${authToken}`
           }

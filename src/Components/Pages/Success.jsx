@@ -111,7 +111,7 @@ function Success() {
 
       try {
         const response = await fetch(
-          `http://localhost:3000/api/gateway/payment-success?paymentIntentId=${paymentIntentId}`,
+          `https://zencia-finalbackend.vercel.app/api/gateway/payment-success?paymentIntentId=${paymentIntentId}`,
           {         
             method: 'GET',
             headers: {

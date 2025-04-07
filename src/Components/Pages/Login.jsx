@@ -37,7 +37,7 @@ function Login({ onSuccess }) {
     setSuccessMessage('');
 
     try {
-      const { data } = await axios.post('http://localhost:3000/api/login', {
+      const { data } = await axios.post('https://zencia-finalbackend.vercel.app/api/login', {
         email,
         password,
       });
