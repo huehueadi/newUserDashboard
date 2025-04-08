@@ -61,7 +61,6 @@ function Sidebar() {
             marginTop: 'auto', // Push to bottom
             borderTop: '1px solid #333', // Visual separator
             paddingTop: '15px',
-            marginTop: '20px',
           }}
           onClick={(e) => {
             e.preventDefault(); // Prevent default Link navigation

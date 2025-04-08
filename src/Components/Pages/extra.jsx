@@ -1382,3 +1382,39 @@
 
 // export default App
 
+
+// Header Model
+
+// <div style={styles.modalOverlay}>
+// <div style={{...styles.modalContent, maxWidth: '500px', padding: '30px'}}>
+//   <h2 style={styles.modalHeading}>Get Started</h2>
+  
+//   <div style={{marginBottom: '20px'}}>
+//     <h3 style={{color: '#9333ea', marginBottom: '10px'}}>Step 1: Download Software</h3>
+//     <ol style={{textAlign: 'left', paddingLeft: '20px', color: '#333'}}>
+//       <li>Go to Zencia.AI website</li>
+//       <li>Find Downloads section</li>
+//       <li>Choose your OS version</li>
+//       <li>Download installation file</li>
+//       <li>Install the software</li>
+//     </ol>
+//   </div>
+
+//   <div>
+//     <h3 style={{color: '#9333ea', marginBottom: '10px'}}>Step 2: Get Hardware ID</h3>
+//     <ol style={{textAlign: 'left', paddingLeft: '20px', color: '#333'}}>
+//       <li>Open Zencia.AI app</li>
+//       <li>Go to License Management</li>
+//       <li>Click 'Generate Key'</li>
+//       <li>Copy your Hardware ID</li>
+//       <li>Use ID for activation</li>
+//     </ol>
+//   </div>
+
+//   <button 
+//     onClick={toggleModal}
+//   >
+//     Close
+//   </button>
+// </div>
+// </div>
