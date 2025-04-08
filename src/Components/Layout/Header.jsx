@@ -90,9 +90,9 @@ function Header() {
           <li style={{ color: '#e0e0e0', marginBottom: '10px' }}>
             Open the Zencia.AI application
           </li>
-          <ui style={{ color: '#e0e0e0', marginBottom: '10px' }}>
+          <li style={{ color: '#e0e0e0', marginBottom: '10px' }}>
             Navigate to the License Management section in the app
-          </ui>
+          </li>
           <li style={{ color: '#e0e0e0', marginBottom: '10px' }}>
             Click the 'Generate Key' button
           </li>
