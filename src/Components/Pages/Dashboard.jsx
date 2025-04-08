@@ -3502,7 +3502,7 @@ function Dashboard() {
   };
 
   const windowsDownloadUrl =
-    'https://download1339.mediafire.com/oog2fldbe4ygoq2LropPiTz1adniPUUnT4_gew80N8lFjHi1SbJ2MhFkh1q4hR3QjVlqg_riGIAIAUUfTihNkDcLPAPbrzuEI7vy_cdG7NYhooT-lrWLQv4BLuEhj1rbUDXnhz-Un2twD52PuygFznoLojwpjbMjz_A2EuswFqoYKKA/j5p8pjyks0a8vae/ZENCIA+1.07.zip';
+    'https://download1478.mediafire.com/x3nhfwneme6gs_2dWg0psMfi-1cs6_z78g856bgOVGKc3DPr9jqzJfBj3Q1okkTg5EZ0AdnWh-V0h0KmtpPuTbmsPzn_z8xXdyEiNw5R8DgneSpJKYg0Tb0CvBrNXNIWVcKTVMnk12SA0WyMftrX-SEu_9L3OBL0UZ8j90jyNa4Urv8/rggm2cu9x47hq8w/ZENCIA+1.0.0.zip';
 
   // Removed confirmDownload function since we want direct download
 

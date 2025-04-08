@@ -13,7 +13,7 @@ function Store() {
   <h3>QR Code Generator</h3>
 </div>
         <p>QR Code Generator empowers users to create personalized QR codes in seconds. Input URLs, text, contact details, or custom data to generate scannable codes, perfect for marketing, event sharing, or digital convenience.</p>
-        <button className="tool-card-btn">Try Now</button>
+        <button className="tool-card-btn">Downlaod Software To Try Now</button>
       </div>
       <div className="tool-card">
       <div className="tool-card-icon" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -21,7 +21,7 @@ function Store() {
   <h3>Merge PDF</h3>
 </div>
         <p>Merge PDF simplifies document consolidation by combining multiple PDF files into one unified output. Offering customizable page ordering, it’s an efficient solution for organizing reports, meeting minutes, or project files seamlessly.</p>
-        <button className="tool-card-btn">Try Now</button>
+        <button className="tool-card-btn">Downlaod Software To Try Now</button>
       </div>
       <div className="tool-card">
       <div className="tool-card-icon" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -29,7 +29,7 @@ function Store() {
   <h3>Image to PDF</h3>
 </div>
         <p>Image to PDF transforms your images into professional, portable PDF documents with minimal effort. Upload single or multiple photos or scans to compile them into a polished, shareable file for work or personal use.</p>
-        <button className="tool-card-btn">Try Now</button>
+        <button className="tool-card-btn">Downlaod Software To Try Now</button>
       </div>
     </div>
   </div>
@@ -43,7 +43,7 @@ function Store() {
 </div>
 
         <p>Split PDF provides a fast way to divide large PDF files into smaller, focused segments. Extract specific pages or ranges effortlessly, making it ideal for isolating chapters, forms, or sections as needed.</p>
-        <button className="tool-card-btn">Try Now</button>
+        <button className="tool-card-btn">Downlaod Software To Try Now</button>
       </div>
       <div className="tool-card">
       <div className="tool-card-icon" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -51,7 +51,7 @@ function Store() {
   <h3>PDF to Image</h3>
 </div>
         <p>PDF to Image converts PDF pages into sharp, high-resolution image files suitable for any purpose. Whether for presentations, archiving, or sharing visuals, it ensures clarity and flexibility in every output.</p>
-        <button className="tool-card-btn">Try Now</button>
+        <button className="tool-card-btn">Downlaod Software To Try Now</button>
       </div>
       <div className="tool-card">
       <div className="tool-card-icon" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -59,7 +59,7 @@ function Store() {
   <h3>PDF to Word</h3>
 </div>
         <p>PDF to Word converts static PDF files into fully editable Word documents with precision. Preserving layouts and formatting, it streamlines editing, repurposing, or collaborating on content for any project.</p>
-        <button className="tool-card-btn">Try Now</button>
+        <button className="tool-card-btn">Downlaod Software To Try Now</button>
       </div>
     </div>
   </div>
