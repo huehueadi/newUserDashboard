@@ -622,8 +622,8 @@ const Onboarding = ({ onComplete }) => {
             <div className="onboarding-step active" id="step-1">
               <div className="step-header">
                 <div className="step-number">1/4</div>
-                <h1 className="step-title">How do you plan to use ZenLicense?</h1>
-                <p className="step-subtitle">We use your answers to personalize your ZenLicense experience.</p>
+                <h1 className="step-title">How do you plan to use Zencia?</h1>
+                <p className="step-subtitle">We use your answers to personalize your Zencia experience.</p>
               </div>
               <div className="option-list">
                 {renderRadioOptions(purposeOptions, selectedPurpose, (value) =>
@@ -664,7 +664,7 @@ const Onboarding = ({ onComplete }) => {
                 <>
                   <div className="step-header">
                     <div className="step-number">2/4</div>
-                    <h1 className="step-title">What will you use ZenLicense for?</h1>
+                    <h1 className="step-title">What will you use Zencia for?</h1>
                     <p className="step-subtitle">Help us customize your experience</p>
                   </div>
                   <div className="option-list">
@@ -708,7 +708,7 @@ const Onboarding = ({ onComplete }) => {
             <div className="onboarding-step active" id="step-3">
               <div className="step-header">
                 <div className="step-number">3/4</div>
-                <h1 className="step-title">What do you plan to do with ZenLicense?</h1>
+                <h1 className="step-title">What do you plan to do with Zencia?</h1>
                 <p className="step-subtitle">Select all that apply</p>
               </div>
               <div className="option-list">{renderCheckboxOptions(useCaseOptions)}</div>

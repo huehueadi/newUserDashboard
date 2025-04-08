@@ -165,10 +165,10 @@ function Login({ onSuccess }) {
         token: credential,
       });
       const { token, redirectPath } = data;
-      localStorage.setItem('authToken', token); // Store token
+      localStorage.setItem('authToken', token); 
       setSuccessMessage('Google login successful');
       setTimeout(() => {
-        onSuccess(redirectPath, token); // Use backend-provided redirectPath
+        onSuccess(redirectPath, token); 
       }, 1000);
     } catch (error) {
       console.error('Google Register Error:', error);
@@ -204,10 +204,10 @@ function Login({ onSuccess }) {
   return (
     <div className="auth-login-container">
       <div className="login-container">
-        {/* Left Column: Logo, Centered Text, and Google Button */}
+        
         <div className="login-welcome-section">
           <div className="logo">
-            <img src="/zencia-logo.png" alt="ZenLicense Logo" />
+            <img src="/design.png" alt="ZenLicense Logo" />
           </div>
           <div className="welcome-content">
             <h2 className="welcome-title">Welcome Back</h2>

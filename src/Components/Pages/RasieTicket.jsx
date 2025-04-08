@@ -1,7 +1,7 @@
 
 function RasieTicket() {
   return (
-{/* <div classname="dashboard-content-container">
+<div classname="dashboard-content-container">
   <div className="dashboard-tab" >
     <h2 className="section-title">Raise Support Ticket</h2>
     <div className="key-generator">
@@ -12,8 +12,8 @@ function RasieTicket() {
       <div className="form-group">
         <label>Priority</label>
         <div className="input-group">
-          <button className="btn">Low</button>
-          <button className="btn btn-primary">Normal</button>
+          <button className="btn ">Low</button>
+          <button className="btn">Medium</button>
           <button className="btn">High</button>
           <button className="btn">Urgent</button>
         </div>
@@ -50,7 +50,7 @@ function RasieTicket() {
       </table>
     </div>
   </div>
-</div> */}
+</div> 
 
   )
 }

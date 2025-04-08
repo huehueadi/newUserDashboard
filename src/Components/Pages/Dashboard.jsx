@@ -2816,6 +2816,667 @@
 
 
 
+// import axios from 'axios';
+// import React, { useEffect, useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+
+// function Dashboard() {
+//   const [isPopupVisible, setIsPopupVisible] = useState(false);
+//   const [isHardwareFormVisible, setIsHardwareFormVisible] = useState(false);
+//   const [registeredHardware, setRegisteredHardware] = useState([]);
+//   const [hardwareIdInput, setHardwareIdInput] = useState('');
+//   const [deviceNameInput, setDeviceNameInput] = useState('');
+//   const [isLoading, setIsLoading] = useState(false);
+//   const [error, setError] = useState(null);
+//   const [overviewData, setOverviewData] = useState(null); // New state for overview data
+
+//   const navigate = useNavigate();
+
+//   const showDownloadPopup = () => {
+//     setIsPopupVisible(true);
+//   };
+
+//   const closeDownloadPopup = () => {
+//     setIsPopupVisible(false);
+//   };
+
+//   const windowsDownloadUrl =
+//   'https://download1339.mediafire.com/t9wkidyqvb6gbspE0H6f0Co1Pm44yjwEMXjEUD67KJewQVCHUVvG4QIudwZggLj-HUyUVDzkGC2PtsfgZftjTu6P7f0-G53_vATGYjt3pDVT4PZ5vXIUyFlw-KsNhqiJuV5HLIneTTIfLSJiOgTjQlwYuE79sbbll2ZiOrfL8An5Xw/j5p8pjyks0a8vae/ZENCIA+1.07.zip';
+
+
+//   const confirmDownload = () => {
+//     alert('Download started!');
+//   };
+
+//   setIsPopupVisible(false);
+
+
+//   const showHardwareForm = () => {
+//     setIsHardwareFormVisible(true);
+//   };
+
+//   const closeHardwareForm = () => {
+//     setIsHardwareFormVisible(false);
+//     setHardwareIdInput('');
+//     setDeviceNameInput('');
+//   };
+
+//   useEffect(() => {
+//     fetchHardwareList();
+//     fetchOverviewData(); 
+//   }, []);
+
+//   const safelyParseJSON = async (response) => {
+//     const text = await response.text();
+//     try {
+//       if (text.trim().startsWith('<!DOCTYPE') || text.trim().startsWith('<html')) {
+//         console.error('Received HTML instead of JSON:', text.substring(0, 100) + '...');
+//         throw new Error('Server returned HTML instead of JSON. You might need to login again.');
+//       }
+//       return JSON.parse(text);
+//     } catch (error) {
+//       console.error('Error parsing JSON response:', error);
+//       throw new Error('Invalid server response. Please try again later.');
+//     }
+//   };
+
+//   // Function to fetch hardware list from API
+//   const fetchHardwareList = async () => {
+//     setIsLoading(true);
+//     setError(null);
+  
+//     try {
+//       const authToken = localStorage.getItem('authToken');
+//       console.log('Retrieved authToken from localStorage:', authToken);
+  
+//       if (!authToken) {
+//         console.log('No authToken found');
+//         setError('Authentication token not found. Please log in again.');
+//         setIsLoading(false);
+//         window.location.href = '/login';
+//         return;
+//       }
+  
+//       console.log('Fetching hardware with token:', authToken);
+  
+//       const response = await axios.get('https://zencia-finalbackend.vercel.app/api/hardware/hardwares-by-user', {
+//         headers: {
+//           'Authorization': `${authToken}`
+//         }
+//       });
+  
+//       console.log('Response status:', response.status);
+//       console.log('Response headers:', response.headers);
+//       console.log('Response data:', response.data);
+  
+//       const data = response.data;
+  
+//       if (response.status === 404) {
+//         console.log(' - No hardware found for this user');
+//         setRegisteredHardware([]);
+//       } else {
+//         console.log('Setting registered hardware:', data.hardwareList);
+//         setRegisteredHardware(data.hardwareList || []);
+//       }
+//     } catch (error) {
+//       console.error('Error fetching hardware:', error);
+  
+//       if (error.response) {
+//         console.log('Error response status:', error.response.status);
+//         console.log('Error response data:', error.response.data);
+  
+//         if (error.response.status === 401) {
+//           console.log('Received 401 - Session expired');
+//           setError('Session expired. Please log in again.');
+//           localStorage.removeItem('authToken');
+//           window.location.href = '/login';
+//           return;
+//         }
+  
+//         if (error.response.status === 404) {
+//           console.log('Received 404 - No hardware found');
+//           setRegisteredHardware([]);
+//         } else {
+//           setError(error.response.data?.message || `API error: ${error.response.status}`);
+//         }
+//       } else if (error.request) {
+//         console.log('No response received:', error.request);
+//         setError('No response from server. Please check your connection.');
+//       } else {
+//         console.log('Request setup error:', error.message);
+//         setError('Error connecting to server');
+//       }
+//     } finally {
+//       console.log('Fetch completed, setting isLoading to false');
+//       setIsLoading(false);
+//     }
+//   };
+
+//   // Function to fetch overview data from API
+//   const fetchOverviewData = async () => {
+//     try {
+//       const authToken = localStorage.getItem('authToken');
+//       if (!authToken) {
+//         console.log('No authToken found for overview');
+//         return;
+//       }
+
+//       const response = await axios.get('https://zencia-finalbackend.vercel.app/api/hardware/overview', {
+//         headers: {
+//           'Authorization': `${authToken}`
+//         }
+//       });
+
+//       console.log('Overview response data:', response.data);
+//       setOverviewData(response.data.data); // Store the data portion of the response
+//     } catch (error) {
+//       console.error('Error fetching overview data:', error);
+//       if (error.response?.status === 401) {
+//         localStorage.removeItem('authToken');
+//         window.location.href = '/auth/login';
+//       }
+//       // Don’t set error state here to avoid affecting hardware list UI
+//     }
+//   };
+
+//   const submitHardwareForm = async () => {
+//     if (!hardwareIdInput || !deviceNameInput) {
+//       alert('Please fill in all fields');
+//       return;
+//     }
+
+//     setIsLoading(true);
+
+//     try {
+//       const authToken = localStorage.getItem('authToken');
+
+//       if (!authToken) {
+//         alert('Authentication token not found. Please log in again.');
+//         setIsLoading(false);
+//         return;
+//       }
+
+//       console.log('Registering hardware with token:', authToken);
+//       console.log('Hardware data:', { hardwareId: hardwareIdInput, nickName: deviceNameInput });
+
+//       const response = await fetch('https://zencia-finalbackend.vercel.app/api/hardware/register', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//           'Authorization': `${authToken}`
+//         },
+//         body: JSON.stringify({
+//           hardwareId: hardwareIdInput,
+//           nickName: deviceNameInput
+//         }),
+//       });
+
+//       console.log('Registration response status:', response.status);
+      
+//       const data = await safelyParseJSON(response);
+//       console.log('Registration response data:', data);
+
+//       if (response.ok) {
+//         alert('Hardware registered successfully!');
+//         setIsHardwareFormVisible(false);
+        
+//         setHardwareIdInput('');
+//         setDeviceNameInput('');
+        
+//         setTimeout(() => fetchHardwareList(), 500);
+//       } else {
+//         alert(data.message || 'Failed to register hardware');
+//       }
+//     } catch (error) {
+//       console.error('Error registering hardware:', error);
+//       alert(error.message || 'Error connecting to server');
+//     } finally {
+//       setIsLoading(false);
+//     }
+//   };
+
+//   // Modal styles - unchanged
+//   const modalStyles = {
+//     position: 'fixed',
+//     top: 0,
+//     left: 0,
+//     width: '100%',
+//     height: '100%',
+//     backgroundColor: 'rgba(0, 0, 0, 0.7)',
+//     display: 'flex',
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     zIndex: 1000,
+//   };
+
+//   const modalContentStyles = {
+//     backgroundColor: '#1e1e1e',
+//     padding: '30px',
+//     borderRadius: '10px',
+//     border: '1px solid #333',
+//     boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4)',
+//     maxWidth: '550px',
+//     width: '90%',
+//     position: 'relative',
+//     color: '#fff',
+//   };
+
+//   const closeButtonStyles = {
+//     position: 'absolute',
+//     top: '15px',
+//     right: '18px',
+//     fontSize: '24px',
+//     fontWeight: 'bold',
+//     cursor: 'pointer',
+//     color: '#999',
+//     transition: 'color 0.2s',
+//     background: 'none',
+//     border: 'none',
+//     outline: 'none',
+//     padding: '5px',
+//     borderRadius: '50%',
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     width: '30px',
+//     height: '30px',
+//   };
+
+//   const systemReqListStyles = {
+//     marginTop: '20px',
+//     marginBottom: '25px',
+//     paddingLeft: '10px',
+//     color: '#ccc',
+//     listStyleType: 'none',
+//   };
+
+//   const listItemStyles = {
+//     marginBottom: '16px',
+//     lineHeight: '1.6',
+//     display: 'flex',
+//     alignItems: 'center',
+//   };
+
+//   const checkmarkStyles = {
+//     color: '#8e44ad',
+//     marginRight: '10px',
+//     fontSize: '16px',
+//     fontWeight: 'bold',
+//   };
+
+//   const formGroupStyles = {
+//     marginBottom: '20px',
+//   };
+
+//   const inputLabelStyles = {
+//     display: 'block',
+//     marginBottom: '8px',
+//     color: '#ccc',
+//     fontWeight: '500',
+//   };
+
+//   const inputStyles = {
+//     width: '100%',
+//     padding: '12px',
+//     backgroundColor: '#2a2a2a',
+//     border: '1px solid #444',
+//     borderRadius: '6px',
+//     color: 'white',
+//     fontSize: '16px',
+//   };
+
+//   const addHardwareButtonStyles = {
+//     display: 'flex',
+//     alignItems: 'center',
+//     backgroundColor: 'transparent',
+//     color: '#9b59b6',
+//     border: '2px solid #9b59b6',
+//     borderRadius: '6px',
+//     padding: '8px 16px',
+//     cursor: 'pointer',
+//   fontSize: '14px',
+//     fontWeight: 'bold',
+//     marginLeft: 'auto',
+//     marginBottom: '20px',
+//     transition: 'all 0.2s ease',
+//   };
+
+//   const plusIconStyles = {
+//     marginRight: '8px',
+//     fontSize: '18px',
+//     fontWeight: 'bold',
+//   };
+
+//   const hasRegisteredHardware = Array.isArray(registeredHardware) && registeredHardware.length > 0;
+//   const displayHardware = hasRegisteredHardware ? registeredHardware : [];
+
+//   return (
+//     <div className="dashboard-content-container">
+//       <div className="dashboard-tab active">
+//         {/* Stats Section with Dynamic Data */}
+//         <div className="stats-container">
+//           <div className="stat-card">
+//             <div className="stat-card-header">
+//               <span>Active Licenses</span>
+//               <span>🔑</span>
+//             </div>
+//             <div className="stat-card-value">{overviewData?.activeLicenses ?? 'Loading...'}</div>
+//             <div className="stat-card-label">Valid licenses</div>
+//           </div>
+//           <div className="stat-card">
+//             <div className="stat-card-header">
+//               <span>Current Plan</span>
+//               <span>⭐</span>
+//             </div>
+//             <div className="stat-card-value">
+//   {overviewData?.currentPlan ?? '0'}
+// </div>
+
+// <div className="stat-card-label">
+//  Plan Subscription
+// </div>
+
+
+//           </div>
+//           <div className="stat-card">
+//             <div className="stat-card-header">
+//               <span>Support Tickets</span>
+//               <span>🎟️</span>
+//             </div>
+//             <div className="stat-card-value">{overviewData?.supportTickets ?? 'Loading...'}</div>
+//             <div className="stat-card-label">{overviewData?.supportTickets === 0 ? 'No pending tickets' : 'Pending tickets'}</div>
+//           </div>
+//           <div className="stat-card">
+//             <div className="stat-card-header">
+//               <span>Last Payment</span>
+//               <span>💳</span>
+//             </div>
+//             <div className="stat-card-value">
+//   {overviewData?.lastPayment ? 
+//     `$${overviewData.lastPayment.amount}` : 
+//     '$0'}
+// </div>
+// <div className="stat-card-label">
+//   {overviewData?.lastPayment ? '' : 'No payment found'}
+// </div>
+
+
+//             <div className="stat-card-label">
+//               {overviewData?.lastPayment
+//                 ? new Date(overviewData.lastPayment.date).toLocaleDateString('en-US', {
+//                     month: 'long',
+//                     day: 'numeric',
+//                     year: 'numeric',
+//                   })
+//                 : ''}
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Quick Actions - Unchanged */}
+//         <h2 className="section-title">Quick Actions</h2>
+//         <div className="card-container">
+//           <div className="plan-card">
+//             <h3 className="plan-name"> Available Plans</h3>
+//             <p className="plan-desc">Select your Plans as per your need</p>
+//             <div className="feature-list">
+//               <div className="feature-item"><i>✓</i> Trail</div>
+//               <div className="feature-item"><i>✓</i> Custom</div>
+//               <div className="feature-item"><i>✓</i> Premium</div>
+//             </div>
+//             <button className="btn btn-primary">Select Plan</button>
+//           </div>
+
+//           <div className="plan-card" onClick={showDownloadPopup}>
+//             <h3 className="plan-name">Download Software</h3>
+//             <p className="plan-desc">Get the latest version of our software</p>
+//             <div className="feature-list">
+//               <div className="feature-item"><i>✓</i> Latest version (v2.1.3)</div>
+//               <div className="feature-item"><i>✓</i> Windows & Mac compatible</div>
+//               <div className="feature-item"><i>✓</i> Offline installer</div>
+//             </div>
+//             <button className="btn btn-primary">Download Now</button>
+//           </div>
+
+//           <div className="plan-card">
+//             <h3 className="plan-name">Need Help?</h3>
+//             <p className="plan-desc">Get support from our team</p>
+//             <div className="feature-list">
+//               <div className="feature-item"><i>✓</i> 24/7 Support</div>
+//               <div className="feature-item"><i>✓</i> Priority response</div>
+//               <div className="feature-item"><i>✓</i> Dedicated assistance</div>
+//             </div>
+//             <button className="btn btn-primary">Contact Support</button>
+//           </div>
+//         </div>
+
+//         {/* Recent Licenses with Add Hardware Button - Unchanged */}
+//         <div style={{ display: 'flex', alignItems: 'center' }}>
+//           <h2 className="section-title">Hardware Devices</h2>
+//           <button style={addHardwareButtonStyles} onClick={showHardwareForm}>
+//             <span style={plusIconStyles}>+</span> Add Hardware
+//           </button>
+//         </div>
+
+//         {isLoading ? (
+//           <div style={{
+//             marginTop: '20px',
+//             marginBottom: '40px',
+//             padding: '40px 20px',
+//             borderRadius: '10px',
+//             textAlign: 'center',
+//           }}>
+//             <p style={{ color: '#999', fontSize: '18px' }}>Loading hardware...</p>
+//           </div>
+//         ) : error ? (
+//           <div style={{
+//             marginTop: '20px',
+//             marginBottom: '40px',
+//             padding: '40px 20px',
+//             border: '2px dashed #444',
+//             borderRadius: '10px',
+//             textAlign: 'center',
+//             backgroundColor: 'rgba(0, 0, 0, 0.2)'
+//           }}>
+//             <p style={{ color: '#e74c3c', fontSize: '18px', marginBottom: '15px' }}>{error}</p>
+//             <button 
+//               style={{
+//                 background: 'linear-gradient(to right, #8e44ad, #9b59b6)',
+//                 color: 'white',
+//                 padding: '8px 20px',
+//                 border: 'none',
+//                 borderRadius: '6px',
+//                 cursor: 'pointer',
+//                 fontSize: '14px',
+//                 fontWeight: 'bold',
+//                 display: 'inline-block',
+//               }} 
+//               onClick={fetchHardwareList}
+//             >
+//               Try Again
+//             </button>
+//           </div>
+//         ) : displayHardware.length > 0 ? (
+//           <div className="table-container">
+//             <table>
+//               <thead>
+//                 <tr>
+//                   <th>Hardware ID</th>
+//                   <th>Nickname</th>
+//                   <th>Date</th>
+//                   <th>Actions</th>
+
+//                 </tr>
+//               </thead>
+//               <tbody>
+//                 {displayHardware.map((hardware, index) => (
+//                   <tr key={hardware._id || index}>
+//                     <td>{hardware.hardwareId}</td>
+//                     <td>{hardware.nickName}</td>
+//                     <td>{hardware.createdAt}</td>
+
+
+//                     <td>
+//                       <button 
+//                         className="btn btn-primary"
+//                         onClick={() => navigate('/plans')}
+//                       >
+//                         Generate License
+//                       </button>
+//                     </td>
+//                   </tr>
+//                 ))}
+//               </tbody>
+//             </table>
+//           </div>
+//         ) : (
+//           <div style={{
+//             marginTop: '20px',
+//             marginBottom: '40px',
+//             padding: '40px 20px',
+//             border: '2px dashed #444',
+//             borderRadius: '10px',
+//             textAlign: 'center',
+//             backgroundColor: 'rgba(0, 0, 0, 0.2)'
+//           }}>
+//             <div style={{
+//               fontSize: '40px',
+//               color: '#8e44ad',
+//               marginBottom: '15px',
+//               opacity: '0.7'
+//             }}>+</div>
+//             <p style={{ 
+//               color: '#999', 
+//               fontSize: '18px', 
+//               marginBottom: '20px' 
+//             }}>No hardware registered yet</p>
+//             <button 
+//               style={{
+//                 background: 'linear-gradient(to right, #8e44ad, #9b59b6)',
+//                 color: 'white',
+//                 padding: '12px 30px',
+//                 border: 'none',
+//                 borderRadius: '6px',
+//                 cursor: 'pointer',
+//                 fontSize: '16px',
+//                 fontWeight: 'bold',
+//                 display: 'inline-block',
+//                 transition: 'all 0.2s ease',
+//                 boxShadow: '0 4px 12px rgba(142, 68, 173, 0.3)',
+//               }} 
+//               onClick={showHardwareForm}
+//             >
+//               Register Hardware
+//             </button>
+//           </div>
+//         )}
+//       </div>
+
+//       {/* Download Popup Modal - Unchanged */}
+//       {isPopupVisible && (
+//         <div style={modalStyles}>
+//           <div style={modalContentStyles}>
+//             <span 
+//               style={closeButtonStyles} 
+//               onClick={closeDownloadPopup}
+//             >
+//               ×
+//             </span>
+//             <h3 style={{ marginTop: '0', color: '#fff', fontSize: '22px', fontWeight: '600',  marginBottom: '25px' }}>Minimum System Requirements</h3>
+//             <ul style={systemReqListStyles}>
+//               <li style={listItemStyles}>
+//                 <span style={checkmarkStyles}>✓</span>
+//                 <span>Operating System: Windows 10 or later </span>
+//               </li>
+//               <li style={listItemStyles}>
+//                 <span style={checkmarkStyles}>✓</span>
+//                 <span>RAM: 8GB minimum (16GB recommended)</span>
+//               </li>
+             
+//               <li style={listItemStyles}>
+//                 <span style={checkmarkStyles}>✓</span>
+//                 <span>Storage: 512GB SSD</span>
+//               </li>
+//               <li style={listItemStyles}>
+//                 <span style={checkmarkStyles}>✓</span>
+//                 <span>GPU: RTX 3060 or greater</span>
+//               </li>
+            
+//               <li style={listItemStyles}>
+//                 <span style={checkmarkStyles}>✓</span>
+//                 <span>CPU: Intel i5 14th Gen / AMD Ryzen 5 7000 Series or greater</span>
+//               </li>
+//             </ul>
+//             <button 
+
+//                         href={windowsDownloadUrl}
+
+//               className='btn btn-primary1'
+//               onClick={confirmDownload}
+//             >
+//               Download
+//             </button>
+//           </div>
+//         </div>
+//       )}
+
+//       {/* Hardware Registration Form Popup - Unchanged */}
+//       {isHardwareFormVisible && (
+//         <div style={modalStyles}>
+//           <div style={modalContentStyles}>
+//             <span 
+//               style={closeButtonStyles} 
+//               onClick={closeHardwareForm}
+//             >
+//               ×
+//             </span>
+//             <h3 style={{ marginTop: '0', color: '#fff', fontSize: '22px', fontWeight: '600', textAlign: 'center', marginBottom: '25px' }}>Register Your Hardware</h3>
+
+//             <div style={formGroupStyles}>
+//               <label htmlFor="hardwareId" style={inputLabelStyles}>Hardware ID</label>
+//               <input 
+//                 type="text"
+//                 id="hardwareId"
+//                 style={inputStyles}
+//                 placeholder="Enter hardware ID (e.g., 1234567890)"
+//                 value={hardwareIdInput}
+//                 onChange={(e) => setHardwareIdInput(e.target.value)}
+//               />
+//             </div>
+
+//             <div style={formGroupStyles}>
+//               <label htmlFor="deviceName" style={inputLabelStyles}>Device Name</label>
+//               <input 
+//                 type="text"
+//                 id="deviceName"
+//                 style={inputStyles}
+//                 placeholder="Enter device nickname (e.g., Work Laptop)"
+//                 value={deviceNameInput}
+//                 onChange={(e) => setDeviceNameInput(e.target.value)}
+//               />
+//             </div>
+
+//             <div style={{ display: 'flex', justifyContent: 'center' }}>
+//               <button 
+//                 className='btn btn-primary1'
+//                 onClick={submitHardwareForm}
+//                 disabled={isLoading}
+//               >
+//                 {isLoading ? 'Registering...' : 'Register Hardware'}
+//               </button>
+//             </div>
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default Dashboard;
+
+
+
+
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -2828,7 +3489,7 @@ function Dashboard() {
   const [deviceNameInput, setDeviceNameInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [overviewData, setOverviewData] = useState(null); // New state for overview data
+  const [overviewData, setOverviewData] = useState(null);
 
   const navigate = useNavigate();
 
@@ -2840,10 +3501,10 @@ function Dashboard() {
     setIsPopupVisible(false);
   };
 
-  const confirmDownload = () => {
-    alert('Download started!');
-    setIsPopupVisible(false);
-  };
+  const windowsDownloadUrl =
+    'https://download1339.mediafire.com/oog2fldbe4ygoq2LropPiTz1adniPUUnT4_gew80N8lFjHi1SbJ2MhFkh1q4hR3QjVlqg_riGIAIAUUfTihNkDcLPAPbrzuEI7vy_cdG7NYhooT-lrWLQv4BLuEhj1rbUDXnhz-Un2twD52PuygFznoLojwpjbMjz_A2EuswFqoYKKA/j5p8pjyks0a8vae/ZENCIA+1.07.zip';
+
+  // Removed confirmDownload function since we want direct download
 
   const showHardwareForm = () => {
     setIsHardwareFormVisible(true);
@@ -2855,13 +3516,11 @@ function Dashboard() {
     setDeviceNameInput('');
   };
 
-  // Fetch hardware list and overview data when component loads
   useEffect(() => {
     fetchHardwareList();
-    fetchOverviewData(); // Fetch overview data on mount
+    fetchOverviewData(); 
   }, []);
 
-  // Helper function to safely parse JSON
   const safelyParseJSON = async (response) => {
     const text = await response.text();
     try {
@@ -2876,7 +3535,6 @@ function Dashboard() {
     }
   };
 
-  // Function to fetch hardware list from API
   const fetchHardwareList = async () => {
     setIsLoading(true);
     setError(null);
@@ -2948,7 +3606,6 @@ function Dashboard() {
     }
   };
 
-  // Function to fetch overview data from API
   const fetchOverviewData = async () => {
     try {
       const authToken = localStorage.getItem('authToken');
@@ -2964,14 +3621,13 @@ function Dashboard() {
       });
 
       console.log('Overview response data:', response.data);
-      setOverviewData(response.data.data); // Store the data portion of the response
+      setOverviewData(response.data.data);
     } catch (error) {
       console.error('Error fetching overview data:', error);
       if (error.response?.status === 401) {
         localStorage.removeItem('authToken');
         window.location.href = '/auth/login';
       }
-      // Don’t set error state here to avoid affecting hardware list UI
     }
   };
 
@@ -2995,7 +3651,7 @@ function Dashboard() {
       console.log('Registering hardware with token:', authToken);
       console.log('Hardware data:', { hardwareId: hardwareIdInput, nickName: deviceNameInput });
 
-      const response = await fetch('http://localhost:3000/api/hardware/register', {
+      const response = await fetch('https://zencia-finalbackend.vercel.app/api/hardware/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -3031,7 +3687,6 @@ function Dashboard() {
     }
   };
 
-  // Modal styles - unchanged
   const modalStyles = {
     position: 'fixed',
     top: 0,
@@ -3130,7 +3785,7 @@ function Dashboard() {
     borderRadius: '6px',
     padding: '8px 16px',
     cursor: 'pointer',
-  fontSize: '14px',
+    fontSize: '14px',
     fontWeight: 'bold',
     marginLeft: 'auto',
     marginBottom: '20px',
@@ -3149,7 +3804,6 @@ function Dashboard() {
   return (
     <div className="dashboard-content-container">
       <div className="dashboard-tab active">
-        {/* Stats Section with Dynamic Data */}
         <div className="stats-container">
           <div className="stat-card">
             <div className="stat-card-header">
@@ -3164,15 +3818,8 @@ function Dashboard() {
               <span>Current Plan</span>
               <span>⭐</span>
             </div>
-            <div className="stat-card-value">
-  {overviewData?.currentPlan ?? '0'}
-</div>
-
-<div className="stat-card-label">
- Plan Subscription
-</div>
-
-
+            <div className="stat-card-value">{overviewData?.currentPlan ?? '0'}</div>
+            <div className="stat-card-label">Plan Subscription</div>
           </div>
           <div className="stat-card">
             <div className="stat-card-header">
@@ -3188,15 +3835,8 @@ function Dashboard() {
               <span>💳</span>
             </div>
             <div className="stat-card-value">
-  {overviewData?.lastPayment ? 
-    `$${overviewData.lastPayment.amount}` : 
-    '$0'}
-</div>
-<div className="stat-card-label">
-  {overviewData?.lastPayment ? '' : 'No payment found'}
-</div>
-
-
+              {overviewData?.lastPayment ? `$${overviewData.lastPayment.amount}` : '$0'}
+            </div>
             <div className="stat-card-label">
               {overviewData?.lastPayment
                 ? new Date(overviewData.lastPayment.date).toLocaleDateString('en-US', {
@@ -3204,12 +3844,11 @@ function Dashboard() {
                     day: 'numeric',
                     year: 'numeric',
                   })
-                : ''}
+                : 'No payment found'}
             </div>
           </div>
         </div>
 
-        {/* Quick Actions - Unchanged */}
         <h2 className="section-title">Quick Actions</h2>
         <div className="card-container">
           <div className="plan-card">
@@ -3220,7 +3859,12 @@ function Dashboard() {
               <div className="feature-item"><i>✓</i> Custom</div>
               <div className="feature-item"><i>✓</i> Premium</div>
             </div>
-            <button className="btn btn-primary">Select Plan</button>
+            <button 
+  className="btn btn-primary" 
+  onClick={() => navigate('/plans')}
+>
+  Select Plan
+</button>
           </div>
 
           <div className="plan-card" onClick={showDownloadPopup}>
@@ -3242,11 +3886,15 @@ function Dashboard() {
               <div className="feature-item"><i>✓</i> Priority response</div>
               <div className="feature-item"><i>✓</i> Dedicated assistance</div>
             </div>
-            <button className="btn btn-primary">Contact Support</button>
+            <button 
+  className="btn btn-primary" 
+  onClick={() => navigate('/contact-us')}
+>
+  Contact Support
+</button>
           </div>
         </div>
 
-        {/* Recent Licenses with Add Hardware Button - Unchanged */}
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <h2 className="section-title">Hardware Devices</h2>
           <button style={addHardwareButtonStyles} onClick={showHardwareForm}>
@@ -3301,7 +3949,6 @@ function Dashboard() {
                   <th>Nickname</th>
                   <th>Date</th>
                   <th>Actions</th>
-
                 </tr>
               </thead>
               <tbody>
@@ -3310,8 +3957,6 @@ function Dashboard() {
                     <td>{hardware.hardwareId}</td>
                     <td>{hardware.nickName}</td>
                     <td>{hardware.createdAt}</td>
-
-
                     <td>
                       <button 
                         className="btn btn-primary"
@@ -3368,7 +4013,6 @@ function Dashboard() {
         )}
       </div>
 
-      {/* Download Popup Modal - Unchanged */}
       {isPopupVisible && (
         <div style={modalStyles}>
           <div style={modalContentStyles}>
@@ -3388,7 +4032,6 @@ function Dashboard() {
                 <span style={checkmarkStyles}>✓</span>
                 <span>RAM: 8GB minimum (16GB recommended)</span>
               </li>
-             
               <li style={listItemStyles}>
                 <span style={checkmarkStyles}>✓</span>
                 <span>Storage: 512GB SSD</span>
@@ -3397,23 +4040,22 @@ function Dashboard() {
                 <span style={checkmarkStyles}>✓</span>
                 <span>GPU: RTX 3060 or greater</span>
               </li>
-            
               <li style={listItemStyles}>
                 <span style={checkmarkStyles}>✓</span>
                 <span>CPU: Intel i5 14th Gen / AMD Ryzen 5 7000 Series or greater</span>
               </li>
             </ul>
-            <button 
+            <a 
+              href={windowsDownloadUrl}
+              download
               className='btn btn-primary1'
-              onClick={confirmDownload}
             >
               Download
-            </button>
+            </a>
           </div>
         </div>
       )}
 
-      {/* Hardware Registration Form Popup - Unchanged */}
       {isHardwareFormVisible && (
         <div style={modalStyles}>
           <div style={modalContentStyles}>

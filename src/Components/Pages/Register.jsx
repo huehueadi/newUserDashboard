@@ -450,7 +450,6 @@ function Register({ onSuccess }) {
     }
   };
 
-  // Auto-submit OTP when all digits are filled
   useEffect(() => {
     if (otp.every((digit) => digit !== '') && otp.length === 6) {
       const timer = setTimeout(() => {
@@ -466,7 +465,7 @@ function Register({ onSuccess }) {
         {/* Left Column: Welcome Section */}
         <div className="register-welcome-section">
           <div className="logo">
-            <img src="zencia-logo.png" alt="ZenLicense Logo" />
+            <img src="/design.png" alt="ZenLicense Logo" />
           </div>
           <div className="welcome-content">
             <h2 className="welcome-title">Join ZenLicense Today</h2>
