@@ -23,10 +23,10 @@ function Sidebar() {
       <span className="menu-text">Plans</span>
     </Link>
 
-    <Link href="/genrate" className="menu-item" data-tab="plans">
+    {/* <Link href="/genrate" className="menu-item" data-tab="plans">
       <div className="menu-icon">🔑</div>
       <span className="menu-text">Generate Key</span>
-    </Link>
+    </Link> */}
         <Link to="/license-management" className="menu-item" data-tab="license-management">
           <div className="menu-icon">📋</div>
           <span className="menu-text">License Management</span>

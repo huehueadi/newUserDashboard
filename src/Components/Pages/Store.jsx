@@ -2,56 +2,63 @@ import React from 'react'
 
 function Store() {
   return (
-   <div classname="dashboard-content-container">
-  <div className="dashboard-tab" id="contact-us">
-    <h2 className="section-title">Contact Us</h2>
-    <div className="key-generator">
-      <div className="form-group">
-        <label htmlFor="contact-subject">Subject</label>
-        <input type="text" id="contact-subject" className="input-control" placeholder="How can we help you?" />
-      </div>
-      <div className="form-group">
-        <label htmlFor="contact-message">Message</label>
-        <textarea id="contact-message" className="input-control" style={{minHeight: 150}} placeholder="Please describe your issue or question in detail..." defaultValue={""} />
-      </div>
-      <div className="form-group">
-        <label>Preferred Contact Method</label>
-        <div className="input-group">
-          <button className="btn btn-primary">Email</button>
-          <button className="btn">Phone</button>
-          <button className="btn">Live Chat</button>
+<div className="container">
+
+  <div className="tools-section">
+  <h2 className="section-title">Choose Your Most Suitable Pricing Plan</h2>
+    <div className="tools-grid">
+      <div className="tool-card">
+        <div className="tool-card-icon">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4Ij48cmVjdCB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIGZpbGw9IiMzZjUxYjUiIHJ4PSI4IiByeT0iOCIvPjxwYXRoIGQ9Ik0yNCAxNmMtNC40MiAwLTggMy41OC04IDhzMy41OCA4IDggOCA4LTMuNTggOC04LTMuNTgtOC04LTh6bTAtNGMtNi42MyAwLTEyIDUuMzctMTIgMTJzNS4zNyAxMiAxMiAxMiAxMi01LjM3IDEyLTEyLTUuMzctMTItMTItMTJ6bTAgMjBjLTQuNDEgMC04LTMuNTktOC04aDRjMCAyLjIxIDEuNzkgNCA0IDRzNCYjMCAxLjc5IDAgNC0xLjc5IDQtNHoiIGZpbGw9IndoaXRlIi8+PC9zdmc+" alt="QR Code Generator" />
+          <h3>QR Code Generator</h3>
         </div>
+        <p>Generate customizable QR codes for links, text, and contact information</p>
+        <button className="tool-card-btn">Try Now</button>
       </div>
-      <button className="btn btn-primary">Send Message</button>
+      <div className="tool-card">
+        <div className="tool-card-icon">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4Ij48cmVjdCB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIGZpbGw9IiMzZjUxYjUiIHJ4PSI4IiByeT0iOCIvPjxwYXRoIGQ9Ik0yOCAyMGgtOHY0aDh2LTR6bTQgMTZIMTZWMTJoMTZ2MjR6bTQtMjhhNCA0IDAgMDAtNC00SDE2Yy0yLjIxIDAtNCAyLjAxLTQgNC4yM3YyNy41NEMxMiA0My45OSAxNC4yMSA0NiAxNiA0NmgxNmMyLjIxIDAgNC0yLjAxIDQtNC4yM1Y4em0tNCAyNkgxNlYxMmgxNnYyNHoiIGZpbGw9IndoaXRlIi8+PC9zdmc+" alt="Merge PDF" />
+          <h3>Merge PDF</h3>
+        </div>
+        <p>Combine multiple PDF files into a single document with customizable order</p>
+        <button className="tool-card-btn">Try Now</button>
+      </div>
+      <div className="tool-card">
+        <div className="tool-card-icon">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4Ij48cmVjdCB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIGZpbGw9IiMzZjUxYjUiIHJ4PSI4IiByeT0iOCIvPjxwYXRoIGQ9Ik00MiAyMmgtNHYtNmEyIDIgMCAwMC0yLTJoLTEwdi02YTIgMiAwIDAwLTItMkgxMGEyIDIgMCAwMC0yIDJ2MjRhMiAyIDAgMDAyIDJoNHY2YTIgMiAwIDAwMiAyaDIwYTIgMiAwIDAwMi0ydi02aDRhMiAyIDAgMDAyLTJ2LThhMiAyIDAgMDAtMi0yem0tNiAxNkgxMlYxMGgxNHY2aDZsMCAyMnptNi04aC00di02aDR2NnoiIGZpbGw9IndoaXRlIi8+PC9zdmc+" alt="Image to PDF" />
+          <h3>Image to PDF</h3>
+        </div>
+        <p>Convert JPG, PNG, and other image formats to PDF documents</p>
+        <button className="tool-card-btn">Try Now</button>
+      </div>
     </div>
-    <h2 className="section-title" style={{marginTop: 30}}>Contact Information</h2>
-    <div className="card-container">
-      <div className="plan-card">
-        <h3 className="plan-name">Email Support</h3>
-        <p className="plan-desc">24/7 email support</p>
-        <div className="feature-list">
-          <div className="feature-item"><i>📧</i> support@zenlicense.com</div>
-          <div className="feature-item"><i>⏱️</i> Response within 24 hours</div>
+  </div>
+  <div className="tools-section">
+    <h2>PDF Tools</h2>
+    <div className="tools-grid">
+      <div className="tool-card">
+        <div className="tool-card-icon">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4Ij48cmVjdCB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIGZpbGw9IiMzZjUxYjUiIHJ4PSI4IiByeT0iOCIvPjxwYXRoIGQ9Ik0yOCAyMGgtOHY0aDh2LTR6bTQgMTZIMTZWMTJoMTZ2MjR6bTQtMjhhNCA0IDAgMDAtNC00SDE2Yy0yLjIxIDAtNCAyLjAxLTQgNC4yM3YyNy41NEMxMiA0My45OSAxNC4yMSA0NiAxNiA0NmgxNmMyLjIxIDAgNC0yLjAxIDQtNC4yM1Y4em0tNCAyNkgxNlYxMmgxNnYyNHoiIGZpbGw9IndoaXRlIi8+PC9zdmc+" alt="Merge PDF" />
+          <h3>Merge PDF</h3>
         </div>
-        <button className="btn btn-primary">Email Us</button>
+        <p>Combine multiple PDF files into a single document with customizable order</p>
+        <button className="tool-card-btn">Try Now</button>
       </div>
-      <div className="plan-card">
-        <h3 className="plan-name">Phone Support</h3>
-        <p className="plan-desc">Available 9 AM - 5 PM ET</p>
-        <div className="feature-list">
-          <div className="feature-item"><i>📞</i> +1 (555) 123-4567</div>
-          <div className="feature-item"><i>⏱️</i> Business hours support</div>
+      <div className="tool-card">
+        <div className="tool-card-icon">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4Ij48cmVjdCB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIGZpbGw9IiMzZjUxYjUiIHJ4PSI4IiByeT0iOCIvPjxwYXRoIGQ9Ik0yOCAyMGgtOHY0aDh2LTR6bTQgMTZIMTZWMTJoMTZ2MjR6bTQtMjhhNCA0IDAgMDAtNC00SDE2Yy0yLjIxIDAtNCAyLjAxLTQgNC4yM3YyNy41NEMxMiA0My45OSAxNC4yMSA0NiAxNiA0NmgxNmMyLjIxIDAgNC0yLjAxIDQtNC4yM1Y4em0tNCAyNkgxNlYxMmgxNnYyNHoiIGZpbGw9IndoaXRlIi8+PC9zdmc+" alt="Merge PDF" />
+          <h3>Merge PDF</h3>
         </div>
-        <button className="btn btn-primary">Call Us</button>
+        <p>Combine multiple PDF files into a single document with customizable order</p>
+        <button className="tool-card-btn">Try Now</button>
       </div>
-      <div className="plan-card">
-        <h3 className="plan-name">Live Chat</h3>
-        <p className="plan-desc">Instant assistance</p>
-        <div className="feature-list">
-          <div className="feature-item"><i>💬</i> Available now</div>
-          <div className="feature-item"><i>⏱️</i> Immediate response</div>
+      <div className="tool-card">
+        <div className="tool-card-icon">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4Ij48cmVjdCB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIGZpbGw9IiMzZjUxYjUiIHJ4PSI4IiByeT0iOCIvPjxwYXRoIGQ9Ik0yOCAyMGgtOHY0aDh2LTR6bTQgMTZIMTZWMTJoMTZ2MjR6bTQtMjhhNCA0IDAgMDAtNC00SDE2Yy0yLjIxIDAtNCAyLjAxLTQgNC4yM3YyNy41NEMxMiA0My45OSAxNC4yMSA0NiAxNiA0NmgxNmMyLjIxIDAgNC0yLjAxIDQtNC4yM1Y4em0tNCAyNkgxNlYxMmgxNnYyNHoiIGZpbGw9IndoaXRlIi8+PC9zdmc+" alt="Merge PDF" />
+          <h3>Merge PDF</h3>
         </div>
-        <button className="btn btn-primary">Start Chat</button>
+        <p>Combine multiple PDF files into a single document with customizable order</p>
+        <button className="tool-card-btn">Try Now</button>
       </div>
     </div>
   </div>

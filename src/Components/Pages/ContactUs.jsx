@@ -14,14 +14,6 @@ function ContactUs() {
         <label htmlFor="contact-message">Message</label>
         <textarea id="contact-message" className="input-control" style={{minHeight: 150}} placeholder="Please describe your issue or question in detail..." defaultValue={""} />
       </div>
-      <div className="form-group">
-        <label>Preferred Contact Method</label>
-        <div className="input-group">
-          <button className="btn btn-primary">Email</button>
-          <button className="btn">Phone</button>
-          <button className="btn">Live Chat</button>
-        </div>
-      </div>
       <button className="btn btn-primary">Send Message</button>
     </div>
     <h2 className="section-title" style={{marginTop: 30}}>Contact Information</h2>

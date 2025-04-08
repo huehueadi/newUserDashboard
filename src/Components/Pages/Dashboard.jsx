@@ -2995,7 +2995,7 @@ function Dashboard() {
       console.log('Registering hardware with token:', authToken);
       console.log('Hardware data:', { hardwareId: hardwareIdInput, nickName: deviceNameInput });
 
-      const response = await fetch('https://zencia-finalbackend.vercel.app/api/hardware/register', {
+      const response = await fetch('http://localhost:3000/api/hardware/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -3164,8 +3164,15 @@ function Dashboard() {
               <span>Current Plan</span>
               <span>⭐</span>
             </div>
-            <div className="stat-card-value">{overviewData?.currentPlan ?? 'Loading...'}</div>
-            <div className="stat-card-label">{overviewData?.currentPlan === 'Lifetime' ? 'Never expires' : 'Subscription'}</div>
+            <div className="stat-card-value">
+  {overviewData?.currentPlan ?? '0'}
+</div>
+
+<div className="stat-card-label">
+ Plan Subscription
+</div>
+
+
           </div>
           <div className="stat-card">
             <div className="stat-card-header">
@@ -3181,8 +3188,15 @@ function Dashboard() {
               <span>💳</span>
             </div>
             <div className="stat-card-value">
-              {overviewData?.lastPayment ? `$${overviewData.lastPayment.amount}` : 'Loading...'}
-            </div>
+  {overviewData?.lastPayment ? 
+    `$${overviewData.lastPayment.amount}` : 
+    '$0'}
+</div>
+<div className="stat-card-label">
+  {overviewData?.lastPayment ? '' : 'No payment found'}
+</div>
+
+
             <div className="stat-card-label">
               {overviewData?.lastPayment
                 ? new Date(overviewData.lastPayment.date).toLocaleDateString('en-US', {
@@ -3285,7 +3299,9 @@ function Dashboard() {
                 <tr>
                   <th>Hardware ID</th>
                   <th>Nickname</th>
+                  <th>Date</th>
                   <th>Actions</th>
+
                 </tr>
               </thead>
               <tbody>
@@ -3293,6 +3309,9 @@ function Dashboard() {
                   <tr key={hardware._id || index}>
                     <td>{hardware.hardwareId}</td>
                     <td>{hardware.nickName}</td>
+                    <td>{hardware.createdAt}</td>
+
+
                     <td>
                       <button 
                         className="btn btn-primary"
@@ -3359,23 +3378,29 @@ function Dashboard() {
             >
               ×
             </span>
-            <h3 style={{ marginTop: '0', color: '#fff', fontSize: '22px', fontWeight: '600', textAlign: 'center', marginBottom: '25px' }}>System Requirements</h3>
+            <h3 style={{ marginTop: '0', color: '#fff', fontSize: '22px', fontWeight: '600',  marginBottom: '25px' }}>Minimum System Requirements</h3>
             <ul style={systemReqListStyles}>
               <li style={listItemStyles}>
                 <span style={checkmarkStyles}>✓</span>
-                <span>Operating System: Windows 10 or later / macOS 11 or later</span>
+                <span>Operating System: Windows 10 or later </span>
               </li>
               <li style={listItemStyles}>
                 <span style={checkmarkStyles}>✓</span>
                 <span>RAM: 8GB minimum (16GB recommended)</span>
               </li>
+             
               <li style={listItemStyles}>
                 <span style={checkmarkStyles}>✓</span>
-                <span>Storage: 2GB free space</span>
+                <span>Storage: 512GB SSD</span>
               </li>
               <li style={listItemStyles}>
                 <span style={checkmarkStyles}>✓</span>
-                <span>Processor: Intel i5 or equivalent</span>
+                <span>GPU: RTX 3060 or greater</span>
+              </li>
+            
+              <li style={listItemStyles}>
+                <span style={checkmarkStyles}>✓</span>
+                <span>CPU: Intel i5 14th Gen / AMD Ryzen 5 7000 Series or greater</span>
               </li>
             </ul>
             <button 

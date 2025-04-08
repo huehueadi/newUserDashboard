@@ -44,69 +44,68 @@ import Store from './Components/Pages/Store';
 
 
 
-import axios from 'axios';
-import { useEffect } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+import ProtectedRoute from './Components/Authentication/Authenticate';
 import Success from './Components/Pages/Success';
 
-// ProtectedRoute component with token verification
-const ProtectedRoute = ({ children }) => {
-  const navigate = useNavigate();
-  const token = localStorage.getItem('authToken');
-  const [isValidating, setIsValidating] = React.useState(true);
-  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+// // ProtectedRoute component with token verification
+// const ProtectedRoute = ({ children }) => {
+//   const navigate = useNavigate();
+//   const token = localStorage.getItem('authToken');
+//   const [isValidating, setIsValidating] = React.useState(true);
+//   const [isAuthenticated, setIsAuthenticated] = React.useState(false);
 
-  useEffect(() => {
-    const verifyToken = async () => {
-      if (!token) {
-        console.log('No token found, redirecting to login');
-        navigate('/auth/login', { replace: true });
-        return;
-      }
+//   useEffect(() => {
+//     const verifyToken = async () => {
+//       if (!token) {
+//         console.log('No token found, redirecting to login');
+//         navigate('/auth/login', { replace: true });
+//         return;
+//       }
 
-      try {
-        // Verify token with an API call
-        const response = await axios.get('http://localhost:3000/api/verify-user', {
-          headers: {
-            'Authorization': `${token}`
-          }
-        });
+//       try {
+//         // Verify token with an API call
+//         const response = await axios.get('https://zencia-finalbackend.vercel.app/api/verify-user', {
+//           headers: {
+//             'Authorization': `${token}`
+//           }
+//         });
 
-        if (response.status === 200) {
-          console.log('Token is valid');
-          setIsAuthenticated(true);
-        } else {
-          console.log('Token verification failed, redirecting to login');
-          localStorage.removeItem('authToken');
-          navigate('/auth/login', { replace: true });
-        }
-      } catch (error) {
-        console.error('Token verification error:', error);
-        if (error.response && error.response.status === 401) {
-          console.log('Token expired or invalid, redirecting to login');
-          localStorage.removeItem('authToken');
-          navigate('/auth/login', { replace: true });
-        } else {
-          console.log('Server error during token verification');
-          // Optionally handle other errors differently
-          navigate('/auth/login', { replace: true });
-        }
-      } finally {
-        setIsValidating(false);
-      }
-    };
+//         if (response.status === 200) {
+//           console.log('Token is valid');
+//           setIsAuthenticated(true);
+//         } else {
+//           console.log('Token verification failed, redirecting to login');
+//           localStorage.removeItem('authToken');
+//           navigate('/auth/login', { replace: true });
+//         }
+//       } catch (error) {
+//         console.error('Token verification error:', error);
+//         if (error.response && error.response.status === 401) {
+//           console.log('Token expired or invalid, redirecting to login');
+//           localStorage.removeItem('authToken');
+//           navigate('/auth/login', { replace: true });
+//         } else {
+//           console.log('Server error during token verification');
+//           // Optionally handle other errors differently
+//           navigate('/auth/login', { replace: true });
+//         }
+//       } finally {
+//         setIsValidating(false);
+//       }
+//     };
 
-    verifyToken();
-  }, [token, navigate]);
+//     verifyToken();
+//   }, [token, navigate]);
 
-  // Show loading state while validating
-  if (isValidating) {
-    return <div>Loading...</div>; // Or a proper loading spinner
-  }
+//   // Show loading state while validating
+//   if (isValidating) {
+//     return <div>Loading...</div>; // Or a proper loading spinner
+//   }
 
-  // Render children only if authenticated
-  return isAuthenticated ? children : null;
-};
+//   // Render children only if authenticated
+//   return isAuthenticated ? children : null;
+// };
 
 function App() {
   return (
@@ -126,8 +125,7 @@ function App() {
             }
           />
           <Route
-            path="license-management"
-            element={
+            path="license-management"element={
               <ProtectedRoute>
                 <LicenseManagement />
               </ProtectedRoute>
