@@ -775,7 +775,7 @@ const Onboarding = ({ onComplete }) => {
                     </>
                   ) : isCompleted ? (
                     <>
-                      <span className="success-icon">✓</span> Complete!
+                      <span>✓</span> Complete!
                     </>
                   ) : (
                     'Done'

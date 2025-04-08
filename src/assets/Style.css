@@ -1713,16 +1713,16 @@ tr:hover {
     color: #ffffff;
   }
   
-  .success-icon {
+  /* .success-icon {
     margin: 0 auto 20px;
-    width: 80px;
-    height: 80px;
+    width: 10px;
+    height: 10px;
     background-color: rgba(76, 175, 80, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+  } */
   
   .success-title {
     font-size: 28px;

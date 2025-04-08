@@ -22,16 +22,16 @@ function ContactUs() {
         <h3 className="plan-name">Email Support</h3>
         <p className="plan-desc">24/7 email support</p>
         <div className="feature-list">
-          <div className="feature-item"><i>📧</i> support@zenlicense.com</div>
+          <div className="feature-item"><i>📧</i> support@zencia.ai</div>
           <div className="feature-item"><i>⏱️</i> Response within 24 hours</div>
         </div>
         <button className="btn btn-primary">Email Us</button>
       </div>
       <div className="plan-card">
         <h3 className="plan-name">Phone Support</h3>
-        <p className="plan-desc">Available 9 AM - 5 PM ET</p>
+        <p className="plan-desc">Available 9 AM - 7 PM IST</p>
         <div className="feature-list">
-          <div className="feature-item"><i>📞</i> +1 (555) 123-4567</div>
+          <div className="feature-item"><i>📞</i> (+91) 9559050100</div>
           <div className="feature-item"><i>⏱️</i> Business hours support</div>
         </div>
         <button className="btn btn-primary">Call Us</button>
