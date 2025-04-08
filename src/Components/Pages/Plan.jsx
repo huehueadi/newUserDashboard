@@ -641,7 +641,7 @@ const Plan = () => {
                 Generate License
               </button>
             )}
-            {(selectedHWID || manualHWID) && (selectedPlanName === "Custom" || selectedPlanName === "Lifetime") && (
+            {(selectedHWID || manualHWID) && (selectedPlanName === "Custom" || selectedPlanName === "Premium") && (
               <button
                 className="btn btn-primary"
                 onClick={handleCheckoutPayment}

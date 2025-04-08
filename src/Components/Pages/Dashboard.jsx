@@ -3855,7 +3855,7 @@ function Dashboard() {
             <h3 className="plan-name"> Available Plans</h3>
             <p className="plan-desc">Select your Plans as per your need</p>
             <div className="feature-list">
-              <div className="feature-item"><i>✓</i> Trail</div>
+              <div className="feature-item"><i>✓</i> Trial</div>
               <div className="feature-item"><i>✓</i> Custom</div>
               <div className="feature-item"><i>✓</i> Premium</div>
             </div>

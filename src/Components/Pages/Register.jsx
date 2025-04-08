@@ -436,7 +436,7 @@ function Register({ onSuccess }) {
     }
     setIsLoading(true);
     try {
-      const { data } = await axios.post('https://zencia-finalbackend.vercel.app/api/verify-otp', {
+      const { data } = await axios.post('https://zencia-finalbackend.vercel.app/api/verify', {
         email,
         otp: otpString,
       });
@@ -468,7 +468,7 @@ function Register({ onSuccess }) {
             <img src="/design.png" alt="ZenLicense Logo" />
           </div>
           <div className="welcome-content">
-            <h2 className="welcome-title">Join ZenLicense Today</h2>
+            <h2 className="welcome-title">Join Zencia Today</h2>
             <GoogleOAuthProvider clientId="424370588012-s14oo8n1aqn4cjda2ahbmavnls1863rj.apps.googleusercontent.com">
               <GoogleLogin
                 onSuccess={handleGoogleOAuth}

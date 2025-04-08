@@ -454,12 +454,36 @@ const Onboarding = ({ onComplete }) => {
   ];
 
   const useCaseOptions = [
-    { value: 'generate-keys', title: 'Generate license keys', description: 'Create secure, unique keys for your software' },
-    { value: 'track-licenses', title: 'Track license usage', description: 'Monitor activations and expiration dates' },
-    { value: 'manage-customers', title: 'Manage customer licenses', description: 'Organize licenses by customer or user' },
-    { value: 'bulk-operations', title: 'Bulk license operations', description: 'Generate or manage multiple licenses at once' },
-    { value: 'hardware-binding', title: 'Hardware ID validation', description: 'Bind licenses to specific hardware' },
-    { value: 'not-sure', title: 'Not sure yet', description: "I'm still exploring options" },
+    {
+      value: 'query-documents',
+      title: 'Query My Documents',
+      description: 'Ask questions and get answers from your uploaded files securely and offline.',
+    },
+    {
+      value: 'analyze-compliance',
+      title: 'Compliance & Audit Checks',
+      description: 'Run AI-powered checks on policy, legal, or compliance documents without data leaks.',
+    },
+    {
+      value: 'persona-insights',
+      title: 'Departmental AI Assistant',
+      description: 'Use role-specific AI (e.g. legal, HR, finance) for contextual responses.',
+    },
+    {
+      value: 'private-chat',
+      title: 'Secure AI Conversations',
+      description: 'Chat privately with AI — no internet, no cloud, 100% control.',
+    },
+    {
+      value: 'offline-reports',
+      title: 'Generate Offline Reports',
+      description: 'Let the AI summarize or convert document insights into downloadable reports.',
+    },
+    {
+      value: 'not-sure',
+      title: 'Not sure yet',
+      description: "I'm still exploring how Zencia Edge can help me.",
+    },
   ];
 
   const sourceOptions = [
