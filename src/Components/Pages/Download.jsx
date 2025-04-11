@@ -12,7 +12,7 @@ const Downloads = () => {
   const handleDownload = async () => {
     if (isUnderstandChecked) {
       // Trigger file download
-      const downloadLink = '/downloads/zencia-windows.exe';
+      const downloadLink = 'https://download851.mediafire.com/p0wtbetqwxngHw2b5fmmhG5vEOBzsU7dPH6YG4e7HCdU4Ji_wqD3udJEcV91Hv8WG0GKrBHk6hCXlIwZHqXyR40xFDd5-GP5Xexpr6iFeUt865dG83xaRy84ufZLkxlz_IIpGWJOB8gLAMhQLMJazxOVOy9CYUotzg4O_WLtvZvMKA/97zk5juwksd1a70/ZENCIA-1.0.0.zip';
       const link = document.createElement('a');
       link.href = downloadLink;
       link.download = 'zencia-windows-installer';
@@ -32,7 +32,7 @@ const Downloads = () => {
           {},
           {
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: `${token}`,
             },
           }
         );

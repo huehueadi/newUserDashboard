@@ -101,9 +101,10 @@ function LicenseManagement() {
 
   return (
     <div className="pricing-container">
-         <div className="pricing-header">
-         <div className="pricing-title-tag"></div>
-         <h1 className="pricing-title">Your Generated Licensen</h1>
+          <div className="pricing-header">
+        <div className="pricing-title-tag">License Management</div>
+        <h1 className="pricing-title"> Your License Keys</h1>
+      </div>    
         <div className="table-container">
           <table>
             <thead>
