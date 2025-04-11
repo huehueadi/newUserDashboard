@@ -729,7 +729,7 @@ import axios from "axios";
 
 
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './HardwareSelection.css';
 
 const PlanSelection = () => {
@@ -967,10 +967,19 @@ const PlanSelection = () => {
 
         {message && (
           <div className={`message ${messageType}`}>
-            <span>{message}</span>
+            <span>
+              {message}
+              {messageType === 'error' && message.includes('Failed to generate license') && (
+                <>
+                  {' '}
+                  <Link to="/license-management" style={{ color: '#007bff', textDecoration: 'underline' }}>
+                    Go to Licenses
+                  </Link>
+                </>
+              )}
+            </span>
           </div>
         )}
-
         {licenseKey && (
           <div className="license-key-container">
             <p className="license-key-text">License Key: {licenseKey}</p>

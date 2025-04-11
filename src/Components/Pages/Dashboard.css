@@ -293,6 +293,9 @@
     align-items: center;
     justify-content: center;
   }
+  .requirements-title{
+    padding: 10px;
+  }
   
   .loader1 {
     width: 40px;

@@ -184,7 +184,7 @@ function ContactUs() {
 
     try {
       const response = await axios.post(
-        'http://localhost:3000/api/support/submit-contact-form',
+        'https://zencia-finalbackend.vercel.app/api/support/submit-contact-form',
         {
           subject: formData.subject,
           message: formData.message,
@@ -271,7 +271,7 @@ function ContactUs() {
           >
             {isSubmitting ? (
               <>
-                <span className="spinner"></span>
+                <span className=""></span>
                 <span>Sending...</span>
               </>
             ) : (
