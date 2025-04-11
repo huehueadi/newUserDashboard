@@ -6,7 +6,7 @@ function Store() {
   <div className="tools-section">
   <div className="pricing-header">
         <div className="pricing-title-tag">Zencia App Store</div>
-        <h1 className="pricing-title"></h1>
+        <h1 className="pricing-title">Every tool you need to work, all in one place</h1>
       </div>    
       <div className="tools-grid">
       <div className="pricing-card popular">

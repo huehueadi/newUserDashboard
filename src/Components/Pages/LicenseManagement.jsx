@@ -90,7 +90,7 @@ function LicenseManagement() {
         <div className="pricing-container">
       
       <div className="pricing-header">
-    <div className="pricing-title-tag">Pricing Plan</div>
+    <div className="pricing-title-tag">License keys</div>
 
     <h1 className="pricing-title">Choose Your Most Suitable Pricing Plan</h1>
     <p style={{ color: '#999', textAlign: 'center', padding: '20px' }}>Loading licenses...</p>
@@ -102,7 +102,7 @@ function LicenseManagement() {
   return (
     <div className="pricing-container">
          <div className="pricing-header">
-         <div className="pricing-title-tag">Pricing Plan</div>
+         <div className="pricing-title-tag"></div>
          <h1 className="pricing-title">Choose Your Most Suitable Pricing Plan</h1>
         <div className="table-container">
           <table>
