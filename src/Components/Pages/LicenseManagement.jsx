@@ -6,11 +6,10 @@ function LicenseManagement() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch licenses from the API
   useEffect(() => {
     const fetchLicenses = async () => {
       try {
-        const authToken = localStorage.getItem('authToken'); // Assuming token is stored in localStorage
+        const authToken = localStorage.getItem('authToken'); 
         if (!authToken) {
           setError('Authentication token not found. Please log in.');
           setLoading(false);
@@ -35,7 +34,6 @@ function LicenseManagement() {
     fetchLicenses();
   }, []);
 
-  // Format date to "Month Day, Year"
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('en-US', {
       month: 'long',
@@ -44,7 +42,6 @@ function LicenseManagement() {
     });
   };
 
-  // Copy license key to clipboard
   const copyToClipboard = (licenseKey) => {
     navigator.clipboard.writeText(licenseKey)
       .then(() => {
@@ -56,7 +53,6 @@ function LicenseManagement() {
       });
   };
 
-  // Determine license status
   const getStatus = (daysLeft, expirationDate) => {
     const today = new Date();
     const expDate = new Date(expirationDate);
@@ -66,14 +62,9 @@ function LicenseManagement() {
     return { text: 'Active', class: 'status-active' };
   };
 
-  // Render loading state
   if (loading) {
     return (
         <div className="pricing-container">
-            {/* <div className="dashboard-tab">
-          <h2 className="section-title">License Management</h2>
-          <p style={{ color: '#999', textAlign: 'center', padding: '20px' }}>Loading licenses...</p>
-        </div> */}
           <div className="pricing-header">
         <div className="pricing-title-tag">License Managment</div>
 
@@ -156,7 +147,6 @@ function LicenseManagement() {
           </table>
         </div>
       </div>
-    </div>
   );
 }
 

@@ -12,7 +12,7 @@ const Downloads = () => {
   const handleDownload = async () => {
     if (isUnderstandChecked) {
       // Trigger file download
-      const downloadLink = 'https://download851.mediafire.com/p0wtbetqwxngHw2b5fmmhG5vEOBzsU7dPH6YG4e7HCdU4Ji_wqD3udJEcV91Hv8WG0GKrBHk6hCXlIwZHqXyR40xFDd5-GP5Xexpr6iFeUt865dG83xaRy84ufZLkxlz_IIpGWJOB8gLAMhQLMJazxOVOy9CYUotzg4O_WLtvZvMKA/97zk5juwksd1a70/ZENCIA-1.0.0.zip';
+      const downloadLink = '/downloads/zencia-windows.exe';
       const link = document.createElement('a');
       link.href = downloadLink;
       link.download = 'zencia-windows-installer';
@@ -22,13 +22,13 @@ const Downloads = () => {
 
       // Call isDownloaded endpoint
       try {
-        const token = localStorage.getItem('token'); // Assuming JWT is stored
+        const token = localStorage.getItem('token');
         if (!token) {
           console.warn('No token found, skipping isDownloaded call');
           return;
         }
-        await axios.post(
-          'https://zencia-finalbackend.vercel.app/api/download',
+        const response = await axios.put(
+          '`https://zencia-finalbackend.vercel.app/api/download', // Updated to match backend route
           {},
           {
             headers: {
@@ -36,10 +36,9 @@ const Downloads = () => {
             },
           }
         );
-        console.log('Download status updated successfully');
+        console.log('Download status updated:', response.data);
       } catch (error) {
-        console.error('Error updating download status:', error);
-        // Optionally notify user, but don't block the download
+        console.error('Error updating download status:', error.response?.data || error.message);
         alert('Download started, but status update failed. Please try again later.');
       }
     }
