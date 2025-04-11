@@ -465,7 +465,7 @@ function Register({ onSuccess }) {
         {/* Left Column: Welcome Section */}
         <div className="register-welcome-section">
           <div className="logo">
-            <img src="/design.png" alt="ZenLicense Logo" />
+            <img src="/-ZENLOGO.png" alt="ZenLicense Logo" />
           </div>
           <div className="welcome-content">
             <h2 className="welcome-title">Join Zencia Today</h2>

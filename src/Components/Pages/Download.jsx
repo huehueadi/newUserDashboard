@@ -511,7 +511,7 @@ const Downloads = () => {
           <div className="step-header">
             
             <span className="step-number">02</span>
-            <h2>Installation Process</h2>
+            <h2>Installation Process </h2>
           </div>
           <div className="step-content">
           <h4 className="requirements-title">Download Process</h4>
@@ -580,7 +580,7 @@ const Downloads = () => {
             onChange={() => setIsUnderstandChecked(!isUnderstandChecked)}
           />
           <label htmlFor="understand-checkbox">
-            I understand the installation requirements and process
+            I understand the installation requirements and process (Prccess Takes Upto 20 mins)
           </label>
         </div>
 

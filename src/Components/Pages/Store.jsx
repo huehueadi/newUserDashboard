@@ -147,10 +147,10 @@ function Store() {
                 src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4Ij48cmVjdCB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIGZpbGw9IiMzZjUxYjUiIHJ4PSI4IiByeT0iOCIvPjxwYXRoIGQ9Ik0yOCAyMGgtOHY0aDh2LTR6bTQgMTZIMTZWMTJoMTZ2MjR6bTQtMjhhNCA0IDAgMDAtNC00SDE2Yy0yLjIxIDAtNCAyLjAxLTQgNC4yM3YyNy41NEMxMiA0My45OSAxNC4yMSA0NiAxNiA0NmgxNmMyLjIxIDAgNC0yLjAxIDQtNC4yM1Y4em0tNCAyNkgxNlYxMmgxNnYyNHoiIGZpbGw9IndoaXRlIi8+PC9zdmc+"
                 alt="Merge PDF"
               />
-              <h3>MOM AI (Minutes of the Meetings)</h3>
+              <h3>M.O.M AI (Minutes of the Meetings)</h3>
             </div>
             <p>
-              These minutes summarize key points, decisions, and action items discussed during the meeting, presenting them in a single, well-organized document. With the ability to customize the order of content.
+              These minutes summarize key points, decisions, and action items discussed during the meeting, presenting them in a single, well-organized document. With the ability to customize the order of content with help of Articfical Intelligence
             </p>
             <button className="choose-plan-btn gradient-btn" style={{ marginTop: '32px' }}>
               Coming Soon
