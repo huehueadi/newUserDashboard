@@ -75,9 +75,9 @@ function LicenseManagement() {
           <p style={{ color: '#999', textAlign: 'center', padding: '20px' }}>Loading licenses...</p>
         </div> */}
           <div className="pricing-header">
-        <div className="pricing-title-tag">Pricing Plan</div>
+        <div className="pricing-title-tag">License Managment</div>
 
-        <h1 className="pricing-title">Choose Your Most Suitable Pricing Plan</h1>
+        <h1 className="pricing-title">Your Generated License</h1>
         <p style={{ color: '#999', textAlign: 'center', padding: '20px' }}>Loading licenses...</p>
       </div>
       </div>
