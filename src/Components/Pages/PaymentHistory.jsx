@@ -72,8 +72,8 @@ function PaymentHistory() {
     <div className="pricing-container">
       <div className="dashboard-tab" id="payment-history">
       <div className="pricing-header">
-        <div className="pricing-title-tag">Pricing Plan</div>
-        <h1 className="pricing-title">Choose Your Most Suitable Pricing Plan</h1>
+        <div className="pricing-title-tag">Payment History</div>
+        <h1 className="pricing-title">All Payments are here</h1>
       </div>          <div className="table-container">
           <table>
             <thead>

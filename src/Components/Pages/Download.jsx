@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Downloads.css';
@@ -8,8 +9,9 @@ const Downloads = () => {
   const navigate = useNavigate();
 
   // Handle download
-  const handleDownload = () => {
+  const handleDownload = async () => {
     if (isUnderstandChecked) {
+      // Trigger file download
       const downloadLink = '/downloads/zencia-windows.exe';
       const link = document.createElement('a');
       link.href = downloadLink;
@@ -17,6 +19,29 @@ const Downloads = () => {
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+
+      // Call isDownloaded endpoint
+      try {
+        const token = localStorage.getItem('token'); // Assuming JWT is stored
+        if (!token) {
+          console.warn('No token found, skipping isDownloaded call');
+          return;
+        }
+        await axios.post(
+          'https://zencia-finalbackend.vercel.app/api/download',
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log('Download status updated successfully');
+      } catch (error) {
+        console.error('Error updating download status:', error);
+        // Optionally notify user, but don't block the download
+        alert('Download started, but status update failed. Please try again later.');
+      }
     }
   };
 
@@ -31,26 +56,26 @@ const Downloads = () => {
         <div className="downloads-title-tag">Download Center</div>
         <h1 className="downloads-title">Zencia Edge: Your Secure AI Companion</h1>
         <p className="downloads-subtitle">
-          Unlock the power of local, private AI with complete data control and offline capabilities. 
-          Zencia Edge provides a secure, intelligent assistant that works entirely on your local machine, 
+          Unlock the power of local, private AI with complete data control and offline capabilities.
+          Zencia Edge provides a secure, intelligent assistant that works entirely on your local machine,
           ensuring your data remains private and protected.
         </p>
       </div>
 
       <div className="os-selection">
-        <button 
+        <button
           className={`os-button ${selectedOS === 'windows' ? 'active' : ''}`}
           onClick={() => setSelectedOS('windows')}
         >
           Windows
         </button>
-        <button 
+        <button
           className={`os-button ${selectedOS === 'mac' ? 'active' : ''}`}
           onClick={() => setSelectedOS('mac')}
         >
           MacOS (Coming Soon)
         </button>
-        <button 
+        <button
           className={`os-button ${selectedOS === 'linux' ? 'active' : ''}`}
           onClick={() => setSelectedOS('linux')}
         >
@@ -124,8 +149,8 @@ const Downloads = () => {
 
       <div className="download-action-container">
         <div className="checkbox-container">
-          <input 
-            type="checkbox" 
+          <input
+            type="checkbox"
             id="understand-checkbox"
             checked={isUnderstandChecked}
             onChange={() => setIsUnderstandChecked(!isUnderstandChecked)}
@@ -134,20 +159,17 @@ const Downloads = () => {
             I understand the installation requirements and process
           </label>
         </div>
-        
+
         <div className="buttons-container">
-          <button 
+          <button
             className={`download-button ${!isUnderstandChecked ? 'disabled' : ''}`}
             onClick={handleDownload}
             disabled={!isUnderstandChecked}
           >
             Download Zencia Edge <span className="arrow-icon">→</span>
           </button>
-          
-          <button 
-            className="license-button"
-            onClick={handleGenerateLicense}
-          >
+
+          <button className="license-button" onClick={handleGenerateLicense}>
             Generate License Key
           </button>
         </div>

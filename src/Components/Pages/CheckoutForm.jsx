@@ -27,7 +27,7 @@ const CheckoutForm = ({ paymentIntentId }) => {
       const { error, paymentIntent } = await stripe.confirmPayment({
         elements,
         confirmParams: {
-          return_url: `https://new-user-dashboard-liard.vercel.app/success?paymentIntentId=${paymentIntentId}`, // Updated to /success
+          return_url: `https://edge.zencia.ai/success?paymentIntentId=${paymentIntentId}`, // Updated to /success
         },
       });
 
@@ -36,7 +36,7 @@ const CheckoutForm = ({ paymentIntentId }) => {
         setErrorMessage(error.message);
       } else if (paymentIntent.status === 'succeeded') {
         console.log('Payment succeeded:', paymentIntent);
-        window.location.href = `https://new-user-dashboard-liard.vercel.app/success?paymentIntentId=${paymentIntentId}`; // Updated to /success
+        window.location.href = `https://edge.zencia.ai/success?paymentIntentId=${paymentIntentId}`; // Updated to /success
       } else {
         console.log('Unexpected payment status:', paymentIntent.status);
         setErrorMessage(`Payment status: ${paymentIntent.status}. Please try again.`);
