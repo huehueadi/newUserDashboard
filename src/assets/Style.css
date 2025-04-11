@@ -2408,6 +2408,14 @@ tr:hover {
     color: #fff;
   }
 
+  .gradient-btn1 {
+    margin-top: 20px;
+    background: linear-gradient(to right, var(--pink), var(--purple));
+    border: none;
+  }
+
+  
+
 
 
 

@@ -47,10 +47,12 @@ function PaymentHistory() {
   // Render loading state
   if (loading) {
     return (
-      <div className="dashboard-content-container">
+      <div className="pricing-container">
         <div className="dashboard-tab" id="payment-history">
-          <h2 className="section-title">Payment History</h2>
-          <p style={{ color: '#999', textAlign: 'center', padding: '20px' }}>Loading payments...</p>
+        <div className="pricing-header">
+        <div className="pricing-title-tag">Payment History</div>
+        <h1 className="pricing-title">All Payments are here</h1>
+      </div>      
         </div>
       </div>
     );
@@ -59,10 +61,13 @@ function PaymentHistory() {
   // Render error state
   if (error) {
     return (
-      <div className="dashboard-content-container">
+      <div className="pricing-container">
         <div className="dashboard-tab" id="payment-history">
-          <h2 className="section-title">Payment History</h2>
-          <p style={{ color: '#e74c3c', textAlign: 'center', padding: '20px' }}>{error}</p>
+        <div className="pricing-header">
+        <div className="pricing-title-tag">Payment History</div>
+        <h1 className="pricing-title">All Payments are here</h1>
+      </div>      
+         
         </div>
       </div>
     );
@@ -74,7 +79,8 @@ function PaymentHistory() {
       <div className="pricing-header">
         <div className="pricing-title-tag">Payment History</div>
         <h1 className="pricing-title">All Payments are here</h1>
-      </div>          <div className="table-container">
+      </div>          
+      <div className="table-container">
           <table>
             <thead>
               <tr>

@@ -201,11 +201,15 @@
   }
   
   .gradient-btn {
+    margin-top: 20px;
     background: linear-gradient(to right, var(--pink), var(--purple));
     border: none;
   }
+
   
   .gradient-btn:hover {
+    margin-top: 20px;
+
     opacity: 0.9;
     background: linear-gradient(to right, var(--pink), var(--purple));
   }
