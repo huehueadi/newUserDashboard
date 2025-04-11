@@ -211,6 +211,7 @@ const Downloads = () => {
         }
         const response = await axios.put(
           'https://zencia-finalbackend.vercel.app/api/download',
+          {},
           {
             headers: {
               Authorization: `${token}`,
