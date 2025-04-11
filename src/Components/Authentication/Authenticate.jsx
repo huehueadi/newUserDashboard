@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const ProtectedRoute = ({ children }) => {
@@ -39,9 +39,9 @@ const ProtectedRoute = ({ children }) => {
     verifyToken();
   }, [token, navigate]);
 
-  if (isValidating) {
-    return <div>Loading...</div>;
-  }
+//   if (isValidating) {
+//     return <div className="loading">Loading...</div>;
+//   }
 
   return isAuthenticated ? children : null;
 };
