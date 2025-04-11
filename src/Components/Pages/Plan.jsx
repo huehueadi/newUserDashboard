@@ -912,7 +912,7 @@ const Plan = () => {
             </div>
             <div className="feature-item">
               <span className="feature-icon">✓</span>
-              Priority Support
+             All Personas Access
             </div>
           </div>
 
@@ -955,7 +955,11 @@ const Plan = () => {
             </div>
             <div className="feature-item">
               <span className="feature-icon">✓</span>
-              Priority Support
+              Tools access Upto One Year
+            </div>
+            <div className="feature-item">
+              <span className="feature-icon">✓</span>
+              Ticket Support
             </div>
             <div className="feature-item">
               <span className="feature-icon">✓</span>
@@ -997,7 +1001,7 @@ const Plan = () => {
             </div>
             <div className="feature-item">
               <span className="feature-icon">✓</span>
-              Advanced Customization
+              Advanced Software Customization 
             </div>
           </div>
 
