@@ -2376,7 +2376,38 @@ tr:hover {
     }
   }
 
+  /* Plan Selection css */
+
+      
+  .plan-selection-wrapper {
+    width: 100%;
+    max-width: 600px;
+    background: var(--secondary-dark);
+    border-radius: 12px;
+    padding: 32px;
   
+    border: 1px solid rgba(100, 100, 150, 0.2);
+  }
+  .btn-back {
+    background: transparent; 
+    color: #b8b8b8;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 20px;
+    position: relative;
+    left: -5px;
+    transition: color 0.2s;
+  }
+  
+  .btn-back:hover {
+    color: #fff;
+  }
+
 
 
 

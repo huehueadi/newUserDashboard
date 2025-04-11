@@ -1,0 +1,383 @@
+/* Plan.css - Styling for the Pricing Plans */
+
+:root {
+    --dark-bg: #121212;
+    --card-bg: #1a1a1a;
+    --text-white: #ffffff;
+    --text-gray: #a0a0a0;
+    --text-light-gray: #cccccc;
+    --purple: #a259ff;
+    --pink: #ff5eaa;
+    --btn-hover: #2a2a2a;
+    --border-color: #333333;
+  }
+  
+  .pricing-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding:20px;
+    color: var(--text-white);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  .pricing-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .pricing-title-tag {
+    display: inline-block;
+    margin-bottom: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    color: var(--text-white);
+  }
+  
+  .pricing-title-tag::before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    width: 15px;
+    height: 2px;
+    background: linear-gradient(to right, var(--pink), var(--purple));
+  }
+  
+  .pricing-title {
+    font-size: 42px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+  }
+  
+  .pricing-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+  }
+  
+  .pricing-card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    padding: 32px;
+    width: 100%;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  .pricing-card.popular {
+    border: 1px solid transparent;
+    background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+                linear-gradient(to right, var(--pink), var(--purple)) border-box;
+  }
+  
+  .popular-tag {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(to right, var(--pink), var(--purple));
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .popular-icon {
+    font-size: 14px;
+  }
+  
+  .plan-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+  }
+  
+  .plan-description {
+    color: var(--text-gray);
+    font-size: 15px;
+    margin: 0 0 24px 0;
+    line-height: 1.5;
+  }
+  
+  .pricing-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  
+  .original-price {
+    color: var(--text-gray);
+    font-size: 24px;
+    text-decoration: line-through;
+  }
+  
+  .current-price {
+    font-size: 42px;
+    font-weight: 700;
+    background: linear-gradient(to right, var(--pink), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .plan-time-info {
+    color: var(--text-gray);
+    font-size: 14px;
+    margin: 0 0 30px 0;
+  }
+  
+  .contact-info {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 20px 0;
+    background: linear-gradient(to right, var(--pink), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .features-list {
+    margin: 24px 0;
+    flex-grow: 1;
+  }
+  
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    color: var(--text-light-gray);
+    font-size: 15px;
+  }
+  
+  .feature-icon {
+    color: var(--purple);
+    font-weight: bold;
+  }
+  
+  .choose-plan-btn {
+    background-color: transparent;
+    color: var(--text-white);
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: auto;
+  }
+  
+  .choose-plan-btn:hover {
+    background-color: var(--btn-hover);
+  }
+  
+  .arrow-icon {
+    transition: transform 0.3s ease;
+  }
+  
+  .choose-plan-btn:hover .arrow-icon {
+    transform: translateX(5px);
+  }
+  
+  .gradient-btn {
+    background: linear-gradient(to right, var(--pink), var(--purple));
+    border: none;
+  }
+  
+  .gradient-btn:hover {
+    opacity: 0.9;
+    background: linear-gradient(to right, var(--pink), var(--purple));
+  }
+  
+  .contact-btn {
+    border: 1px solid var(--border-color);
+  }
+  
+  /* Modal Styles */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    padding: 40px;
+    width: 95%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    color: var(--text-gray);
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .close-btn:hover {
+    color: var(--text-white);
+  }
+  
+  .modal-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 30px 0;
+  }
+  
+  .form-group {
+    margin-bottom: 24px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: var(--text-gray);
+  }
+  
+  .form-group select,
+  .form-group input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-white);
+    font-size: 15px;
+  }
+  
+  .form-group select:focus,
+  .form-group input:focus {
+    outline: none;
+    border-color: var(--purple);
+  }
+  
+  .modal-action-btn {
+    background: linear-gradient(to right, var(--pink), var(--purple));
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: opacity 0.3s ease;
+  }
+  
+  .modal-action-btn:hover {
+    opacity: 0.9;
+  }
+  
+  .modal-message {
+    margin-top: 20px;
+    color: var(--text-white);
+    text-align: center;
+  }
+  
+  .license-key-container {
+    margin-top: 24px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  
+  .license-key-text {
+    word-break: break-all;
+    margin: 0 0 16px 0;
+    color: var(--text-white);
+    font-family: monospace;
+    font-size: 14px;
+  }
+  
+  .copy-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
+    color: var(--text-white);
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .copy-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .pricing-cards-container {
+      gap: 20px;
+    }
+    
+    .pricing-card {
+      padding: 24px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .pricing-title {
+      font-size: 32px;
+    }
+    
+    .pricing-card {
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .pricing-header {
+      margin-bottom: 40px;
+    }
+    
+    .pricing-title {
+      font-size: 28px;
+    }
+    
+    .modal-content {
+      padding: 30px 20px;
+    }
+  }
+  
+  /* Loading and Error states */
+  .loading, .error {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    color: var(--text-white);
+  }

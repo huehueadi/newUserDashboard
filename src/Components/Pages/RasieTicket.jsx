@@ -19,7 +19,7 @@ function RaiseTicket() {
         if (!authToken) throw new Error('No authentication token found');
 
         console.log('Initiating GET request to /api/support/get-ticket');
-        const response = await axios.get('http://localhost:3000/api/support/get-ticket', {
+        const response = await axios.get('https://zencia-finalbackend.vercel.app/api/support/get-ticket', {
           headers: {
             Authorization: `${authToken}`,
           },
@@ -75,7 +75,7 @@ function RaiseTicket() {
 
       console.log('Initiating POST request to /api/support/create');
       const response = await axios.post(
-        'http://localhost:3000/api/support/create',
+        'https://zencia-finalbackend.vercel.app/api/support/create',
         ticketData,
         {
           headers: {

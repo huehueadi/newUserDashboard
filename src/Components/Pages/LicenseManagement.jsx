@@ -69,11 +69,17 @@ function LicenseManagement() {
   // Render loading state
   if (loading) {
     return (
-      <div className="dashboard-content-container">
-        <div className="dashboard-tab">
+        <div className="pricing-container">
+            {/* <div className="dashboard-tab">
           <h2 className="section-title">License Management</h2>
           <p style={{ color: '#999', textAlign: 'center', padding: '20px' }}>Loading licenses...</p>
-        </div>
+        </div> */}
+          <div className="pricing-header">
+        <div className="pricing-title-tag">Pricing Plan</div>
+
+        <h1 className="pricing-title">Choose Your Most Suitable Pricing Plan</h1>
+        <p style={{ color: '#999', textAlign: 'center', padding: '20px' }}>Loading licenses...</p>
+      </div>
       </div>
     );
   }
@@ -81,19 +87,23 @@ function LicenseManagement() {
   // Render error state
   if (error) {
     return (
-      <div className="dashboard-content-container">
-        <div className="dashboard-tab">
-          <h2 className="section-title">License Management</h2>
-          <p style={{ color: '#e74c3c', textAlign: 'center', padding: '20px' }}>{error}</p>
-        </div>
-      </div>
+        <div className="pricing-container">
+      
+      <div className="pricing-header">
+    <div className="pricing-title-tag">Pricing Plan</div>
+
+    <h1 className="pricing-title">Choose Your Most Suitable Pricing Plan</h1>
+    <p style={{ color: '#999', textAlign: 'center', padding: '20px' }}>Loading licenses...</p>
+  </div>
+  </div>
     );
   }
 
   return (
-    <div className="dashboard-content-container">
-      <div className="dashboard-tab">
-        <h2 className="section-title">License Management</h2>
+    <div className="pricing-container">
+         <div className="pricing-header">
+         <div className="pricing-title-tag">Pricing Plan</div>
+         <h1 className="pricing-title">Choose Your Most Suitable Pricing Plan</h1>
         <div className="table-container">
           <table>
             <thead>
