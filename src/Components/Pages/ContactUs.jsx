@@ -1,55 +1,141 @@
-import React from 'react'
+import React, { useState } from 'react';
+import './Contact.css';
 
 function ContactUs() {
-  return (
-   <div classname="dashboard-content-container">
-  <div className="dashboard-tab" id="contact-us">
-    <h2 className="section-title">Contact Us</h2>
-    <div className="key-generator">
-      <div className="form-group">
-        <label htmlFor="contact-subject">Subject</label>
-        <input type="text" id="contact-subject" className="input-control" placeholder="How can we help you?" />
-      </div>
-      <div className="form-group">
-        <label htmlFor="contact-message">Message</label>
-        <textarea id="contact-message" className="input-control" style={{minHeight: 150}} placeholder="Please describe your issue or question in detail..." defaultValue={""} />
-      </div>
-      <button className="btn btn-primary">Send Message</button>
-    </div>
-    <h2 className="section-title" style={{marginTop: 30}}>Contact Information</h2>
-    <div className="card-container">
-      <div className="plan-card">
-        <h3 className="plan-name">Email Support</h3>
-        <p className="plan-desc">24/7 email support</p>
-        <div className="feature-list">
-          <div className="feature-item"><i>📧</i> support@zencia.ai</div>
-          <div className="feature-item"><i>⏱️</i> Response within 24 hours</div>
-        </div>
-        <button className="btn btn-primary">Email Us</button>
-      </div>
-      <div className="plan-card">
-        <h3 className="plan-name">Phone Support</h3>
-        <p className="plan-desc">Available 9 AM - 7 PM IST</p>
-        <div className="feature-list">
-          <div className="feature-item"><i>📞</i> (+91) 9559050100</div>
-          <div className="feature-item"><i>⏱️</i> Business hours support</div>
-        </div>
-        <button className="btn btn-primary">Call Us</button>
-      </div>
-      <div className="plan-card">
-        <h3 className="plan-name">Live Chat</h3>
-        <p className="plan-desc">Instant assistance</p>
-        <div className="feature-list">
-          <div className="feature-item"><i>💬</i> Available now</div>
-          <div className="feature-item"><i>⏱️</i> Immediate response</div>
-        </div>
-        <button className="btn btn-primary">Start Chat</button>
-      </div>
-    </div>
-  </div>
-</div>
+  const [formData, setFormData] = useState({
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState({ type: '', text: '' });
 
-  )
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id === 'contact-subject' ? 'subject' : 'message']: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    if (!formData.subject || !formData.message) {
+      setSubmitMessage({
+        type: 'error',
+        text: 'Please fill in both subject and message fields.'
+      });
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    setTimeout(() => {
+      setSubmitMessage({
+        type: 'success',
+        text: 'Your message has been sent successfully! We will get back to you soon.'
+      });
+      setFormData({ subject: '', message: '' });
+      setIsSubmitting(false);
+    }, 1500);
+  };
+
+  return (
+    <div className="dashboard-content-container">
+      <div className="dashboard-tab" id="contact-us">
+      <div className="pricing-header">
+        <div className="pricing-title-tag">Get in Touch</div>
+        <h1 className="pricing-title">We’d Love to Hear from You</h1>
+      </div>
+        
+        {submitMessage.text && (
+          <div className={`message-container ${submitMessage.type}`}>
+            <span className="message-icon">
+              {submitMessage.type === 'success' ? '✓' : '⚠'}
+            </span>
+            <span className="message-text">{submitMessage.text}</span>
+          </div>
+        )}
+        
+        <div className="contact-form">
+          <div className="form-group">
+            <label htmlFor="contact-subject">Subject</label>
+            <input 
+              type="text" 
+              id="contact-subject" 
+              className="input-control" 
+              placeholder="How can we help you?" 
+              value={formData.subject}
+              onChange={handleInputChange}
+              disabled={isSubmitting}
+            />
+          </div>
+          
+          <div className="form-group">
+            <label htmlFor="contact-message">Message</label>
+            <textarea 
+              id="contact-message" 
+              className="input-control" 
+              placeholder="Please describe your issue or question in detail..." 
+              value={formData.message}
+              onChange={handleInputChange}
+              disabled={isSubmitting}
+            />
+          </div>
+          
+          <button 
+            className={`submit-btn ${isSubmitting ? 'loading' : ''}`}
+            onClick={handleSubmit}
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? (
+              <>
+                <span className="spinner"></span>
+                <span>Sending...</span>
+              </>
+            ) : 'Send Message'}
+          </button>
+        </div>
+        
+        <h2 className="section-title contact-info-title">Contact Information</h2>
+        
+        <div className="contact-cards-container">
+          <div className="contact-card">
+            <div className="card-icon">📧</div>
+            <h3 className="card-title">Email Support</h3>
+            <p className="card-desc">24/7 email support</p>
+            <div className="card-details">
+              <div className="detail-item">
+                <span className="detail-icon">📧</span>
+                <a href="mailto:support@zencia.ai" className="email-link">support@zencia.ai</a>
+              </div>
+              <div className="detail-item">
+                <span className="detail-icon">⏱️</span>
+                <span>Response within 24 hours</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="contact-card">
+            <div className="card-icon">📞</div>
+            <h3 className="card-title">Phone Support</h3>
+            <p className="card-desc">Available 9 AM - 7 PM IST</p>
+            <div className="card-details">
+              <div className="detail-item">
+                <span className="detail-icon">📞</span>
+                <a href="tel:+919559050100" className="phone-link">(+91) 9559050100</a>
+              </div>
+              <div className="detail-item">
+                <span className="detail-icon">⏱️</span>
+                <span>Business hours support</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default ContactUs
+export default ContactUs;

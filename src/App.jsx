@@ -136,6 +136,7 @@ import ContactUs from './Components/Pages/ContactUs';
 import Dashboard from './Components/Pages/Dashboard';
 import Download from './Components/Pages/Download'; // Add this import
 import Plans from './Components/Pages/extra/Plans';
+import FAQ from './Components/Pages/Faq';
 import LicenseManagement from './Components/Pages/LicenseManagement';
 import OnboardingFlow from './Components/Pages/OnbaordingFlow';
 import PaymentGateway from './Components/Pages/PaymentGatway';
@@ -201,6 +202,10 @@ function App() {
           <Route
             path="download" // New route
             element={<ProtectedRoute><Download /></ProtectedRoute>}
+          />
+           <Route
+            path="faq" // New route
+            element={<ProtectedRoute><FAQ /></ProtectedRoute>}
           />
           <Route
             index

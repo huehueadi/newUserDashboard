@@ -68,7 +68,7 @@ function LicenseManagement() {
           <div className="pricing-header">
         <div className="pricing-title-tag">License Managment</div>
 
-        <h1 className="pricing-title">Your Generated License</h1>
+        <h1 className="pricing-title">Manage your license keys</h1>
         <p style={{ color: '#999', textAlign: 'center', padding: '20px' }}>Loading licenses...</p>
       </div>
       </div>
@@ -83,7 +83,7 @@ function LicenseManagement() {
       <div className="pricing-header">
     <div className="pricing-title-tag">License Management</div>
 
-    <h1 className="pricing-title">Your Generated License</h1>
+    <h1 className="pricing-title">Manage your license keys</h1>
     <p style={{ color: '#999', textAlign: 'center', padding: '20px' }}>Loading licenses...</p>
   </div>
   </div>
@@ -94,7 +94,7 @@ function LicenseManagement() {
     <div className="pricing-container">
           <div className="pricing-header">
         <div className="pricing-title-tag">License Management</div>
-        <h1 className="pricing-title"> Your License Keys</h1>
+        <h1 className="pricing-title"> Manage Your License Keys</h1>
       </div>    
         <div className="table-container">
           <table>

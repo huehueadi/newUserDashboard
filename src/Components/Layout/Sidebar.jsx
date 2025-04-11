@@ -105,7 +105,8 @@ function Sidebar() {
     { to: "/payment-history", icon: "🧾", text: "Payment History" },
     { to: "/store", icon: "🛒", text: "Store" },
     { to: "/contact-us", icon: "📞", text: "Contact Us" },
-    { to: "/raise-ticket", icon: "🎟️", text: "Raise Ticket" }
+    { to: "/raise-ticket", icon: "🎟️", text: "Raise Ticket" },
+    { to: "/faq", icon: "❓", text: "Faq" }
   ];
 
   return (

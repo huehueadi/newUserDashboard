@@ -65,7 +65,7 @@ function PaymentHistory() {
         <div className="dashboard-tab" id="payment-history">
         <div className="pricing-header">
         <div className="pricing-title-tag">Payment History</div>
-        <h1 className="pricing-title">All Payments are here</h1>
+        <h1 className="pricing-title">A record of all your transactions</h1>
       </div>      
          
         </div>
