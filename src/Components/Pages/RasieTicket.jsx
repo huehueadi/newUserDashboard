@@ -406,7 +406,7 @@ function RaiseTicket() {
           </div>
           
           <div className="form-group">
-            <label htmlFor="ticket-attachment">Attachments (Optional)</label>
+            <label htmlFor="ticket-attachment">Attachments</label>
             <input
               type="file"
               id="ticket-attachment"

@@ -104,6 +104,8 @@ function Sidebar() {
     { to: "/license-management", icon: "📋", text: "License Management" },
     { to: "/payment-history", icon: "🧾", text: "Payment History" },
     { to: "/store", icon: "🛒", text: "Store" },
+    { to: "/download", icon: "⬇", text: "Download" },
+
     { to: "/contact-us", icon: "📞", text: "Contact Us" },
     { to: "/raise-ticket", icon: "🎟️", text: "Raise Ticket" },
     { to: "/faq", icon: "❓", text: "Faq" }
