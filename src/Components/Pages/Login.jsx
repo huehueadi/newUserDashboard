@@ -207,7 +207,7 @@ function Login({ onSuccess }) {
         
         <div className="login-welcome-section">
           <div className="logo">
-            <img src="/design.png" alt="ZenLicense Logo" />
+            <img src="/-ZENLOGO.png" alt="ZenLicense Logo" />
           </div>
           <div className="welcome-content">
             <h2 className="welcome-title">Welcome Back</h2>

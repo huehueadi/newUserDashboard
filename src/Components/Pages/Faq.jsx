@@ -21,18 +21,23 @@ function FAQ() {
     },
     {
       id: 4,
-      question: "What types of files does Zencia Edge support?",
-      answer: "Zencia Edge can analyze and extract insights from various file formats, including:\n✔ TXT – Text files\n✔ PDF – Digital documents\n✔ DOCX – Word files\nThis allows users to upload multiple data formats and get structured, meaningful insights instantly."
+      question: "⁠What are Personas in Zencia Edge?",
+      answer: "Personas in Zencia Edge are customizable AI personalities designed to align with your organization's communication style, task requirements, and user expectations. Each persona can have a distinct tone, knowledge base, behavior, and interaction style tailored to specific departments, teams, or use cases"
     },
     {
         id: 4,
-        question: "What types of files does Zencia Edge support?",
-        answer: "Zencia Edge can analyze and extract insights from various file formats, including:\n✔ TXT – Text files\n✔ PDF – Digital documents\n✔ DOCX – Word files\nThis allows users to upload multiple data formats and get structured, meaningful insights instantly."
+        question: "Why does Zencia Edge use Personas?",
+        answer: "Personas make Zencia Edge more human-like, versatile, and aligned with your business objectives. Instead of a one-size-fits-all AI, Zencia Edge enables multiple specialized agents (personas) that act as expert assistants for different tasks, such as HR queries, technical support, data analysis, or management reporting."
       },
       {
         id: 4,
-        question: "What types of files does Zencia Edge support?",
-        answer: "Zencia Edge can analyze and extract insights from various file formats, including:\n✔ TXT – Text files\n✔ PDF – Digital documents\n✔ DOCX – Word files\nThis allows users to upload multiple data formats and get structured, meaningful insights instantly."
+        question: "What are Zencia Personas?",
+        answer: "Personas are like different expert team members inside Zencia Edge. You can create a Persona for HR, Finance, IT, Legal, or any department you want. Each Persona knows its own documents and gives answers according to its role — making the AI smarter and more helpful for your team."
+      },
+      {
+        id: 4,
+        question: "Is it difficult to use?",
+        answer: "Not at all! Zencia Edge has a simple and friendly interface. Even non-technical teams can use it easily to get answers, analyze reports, and automate their everyday tasks."
       },
       {
         id: 4,
