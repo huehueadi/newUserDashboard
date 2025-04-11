@@ -114,7 +114,7 @@ function Sidebar() {
         <div className="logo">
           <img 
             className="full-logo" 
-            src="/design.png" 
+            src="/-ZENLOGO.png" 
             alt="Zencia.AI Logo" 
           />
         </div>
