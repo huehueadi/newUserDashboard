@@ -580,7 +580,7 @@ const Downloads = () => {
             onClick={handleDownload}
             disabled={!isUnderstandChecked}
           >
-            Download Zencia Edge <span className="arrow-icon">→</span>
+            Download (Version 2.0.0) <span className="arrow-icon">→</span>
           </button>
 
           <button className="license-button" onClick={handleGenerateLicense}>
