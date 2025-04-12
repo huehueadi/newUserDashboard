@@ -580,7 +580,7 @@ const Downloads = () => {
             onChange={() => setIsUnderstandChecked(!isUnderstandChecked)}
           />
           <label htmlFor="understand-checkbox">
-            I understand the installation requirements and process (Prccess Takes Upto 20 mins)
+            I understand the installation requirements and proccess (Proccess Takes Upto 20 mins)
           </label>
         </div>
 
