@@ -451,7 +451,7 @@ const Plan = () => {
           </p>
 
           <div className="pricing-info">
-            <div className="original-price">${customPlan.price ? customPlan.price  : "99"}</div>
+            <div className="original-price">{"$99"}</div>
             <div className="current-price">${customPlan.price || "49"}</div>
           </div>
 
