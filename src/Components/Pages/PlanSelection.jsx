@@ -1205,16 +1205,17 @@ const PlanSelection = () => {
         <div className="form-group">
           <label htmlFor="hardware-select">Choose your device</label>
           <select 
-            id="hardware-select"  
+            id="hardware-select" 
             value={selectedHWID}
             onChange={(e) => {
               setSelectedHWID(e.target.value);
               if (e.target.value) setManualHWID('');
             }}
           >
-            <option value=""style={{ color: 'black' }}>Select a Hardware ID</option>
+            <option value="">Select a Hardware ID</option>
             {hardwareList.map((hw) => (
-              <option key={hw._id} value={hw.hardwareId}>
+              <option style={{ color: 'black' }} 
+              key={hw._id} value={hw.hardwareId}>
                 {hw.nickName ? `${hw.hardwareId} (${hw.nickName})` : hw.hardwareId}
               </option>
             ))}
