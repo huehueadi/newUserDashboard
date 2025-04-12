@@ -54,7 +54,7 @@ function FAQ() {
     <div className="dashboard-content-container">
       <div className="faq-container">
         <div className="faq-header">
-        <div className="pricing-title-tag">Faq</div>
+        <div className="pricing-title-tag">FAQ</div>
 
           <h1 className="faq-title">Frequently Asked Questions</h1>
           <p className="faq-subtitle">
