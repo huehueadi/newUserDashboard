@@ -460,7 +460,7 @@ const Downloads = () => {
                 </li>
                 <li>
                   <span className="requirement-icon">✓</span>
-                  RAM: 16GB DDR5
+                  RAM: 16GB 
                 </li>
                 <li>
                   <span className="requirement-icon">✓</span>
@@ -479,7 +479,7 @@ const Downloads = () => {
             </div>
             
             <div className="requirements-section">
-              <h4 className="requirements-title">Recommended Specifications</h4>
+              <h4 className="requirements-title">Recommended Requirements</h4>
               <ul className="requirements-list">
                 <li>
                   <span className="requirement-icon">✓</span>
@@ -487,7 +487,7 @@ const Downloads = () => {
                 </li>
                 <li>
                   <span className="requirement-icon">✓</span>
-                  RAM: 32GB DDR5 & Storage: 1TB SSD
+                  RAM: 32GB DDR5
                 </li>
                 <li>
                   <span className="requirement-icon">✓</span>
