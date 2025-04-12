@@ -963,7 +963,7 @@ const Plan = () => {
             </div>
             <div className="feature-item">
               <span className="feature-icon">✓</span>
-              Personas for Business Workflows
+              Personas for Business Workflow
             </div>
           </div>
 
