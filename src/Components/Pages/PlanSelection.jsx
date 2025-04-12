@@ -921,8 +921,9 @@ const PlanSelection = () => {
 
         <div className="form-group">
           <label htmlFor="hardware-select">Choose your device</label>
-          <select
-            id="hardware-select"
+          <select 
+            id="hardware-select"  
+            style={{ color: 'black' }}
             value={selectedHWID}
             onChange={(e) => {
               setSelectedHWID(e.target.value);
