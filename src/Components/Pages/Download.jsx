@@ -368,13 +368,10 @@ import './Downloads.css';
 
 const Downloads = () => {
   const [isUnderstandChecked, setIsUnderstandChecked] = useState(false);
-  const [selectedOS, setSelectedOS] = useState('windows');
   const navigate = useNavigate();
 
-  // Handle download
   const handleDownload = async () => {
     if (isUnderstandChecked) {
-      // Trigger file download
       const downloadLink = 'https://download851.mediafire.com/a1ydlf9c46vgWpcv3wNYW7Thik9t5ZrbZlw468pvel91m4OXVwCz18H8dAycrvM6YlEpqj4Rrwc0INKXRVNndxYL6DtOwqLgaJOmp_GWipXFZXDYlzK3Gyv63V_xLZn7JagudTZ4FAwt0Mdkr9QcgQE_zZDpHvkxajgXj8xL3iBx3A/97zk5juwksd1a70/ZENCIA-1.0.0.zip';
       const link = document.createElement('a');
       link.href = downloadLink;
@@ -383,7 +380,6 @@ const Downloads = () => {
       link.click();
       document.body.removeChild(link);
 
-      // Call isDownloaded endpoint
       try {
         const token = localStorage.getItem('authToken');
         if (!token) {
@@ -425,21 +421,15 @@ const Downloads = () => {
 
       <div className="os-selection">
         <button
-          className={`os-button ${selectedOS === 'windows' ? 'active' : ''}`}
-          onClick={() => setSelectedOS('windows')}
-        >
+          className="os-button active">
           Windows
         </button>
         <button
-          className={`os-button ${selectedOS === 'mac' ? 'active' : ''}`}
-          onClick={() => setSelectedOS('mac')}
-        >
+          className="os-button">
           MacOS (Coming Soon)
         </button>
         <button
-          className={`os-button ${selectedOS === 'linux' ? 'active' : ''}`}
-          onClick={() => setSelectedOS('linux')}
-        >
+          className="os-button">
           Linux (Coming Soon)
         </button>
       </div>

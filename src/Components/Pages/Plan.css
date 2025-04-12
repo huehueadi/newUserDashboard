@@ -68,14 +68,14 @@
     flex-direction: column;
     position: relative;
     border: 1px solid var(--border-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* transition: transform 0.3s ease; */
   }
   
-  .pricing-card:hover {
+  /* .pricing-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   }
-  
+   */
   .pricing-card.popular {
     border: 1px solid transparent;
     background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
@@ -86,7 +86,7 @@
     position: absolute;
     top: -12px;
     left: 50%;
-    transform: translateX(-50%);
+    /* transform: translateX(-50%); */
     background: linear-gradient(to right, var(--pink), var(--purple));
     color: white;
     padding: 6px 16px;
@@ -183,7 +183,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; */
     width: 100%;
     margin-top: auto;
   }
@@ -197,7 +197,7 @@
   }
   
   .choose-plan-btn:hover .arrow-icon {
-    transform: translateX(5px);
+    transform: translateX(4px);
   }
   
   .gradient-btn {
@@ -208,9 +208,7 @@
 
   
   .gradient-btn:hover {
-    margin-top: 20px;
-
-    opacity: 0.9;
+ 
     background: linear-gradient(to right, var(--pink), var(--purple));
   }
   
@@ -300,7 +298,7 @@
     font-weight: 600;
     cursor: pointer;
     width: 100%;
-    transition: opacity 0.3s ease;
+    /* transition: opacity 0.3s ease; */
   }
   
   .modal-action-btn:hover {

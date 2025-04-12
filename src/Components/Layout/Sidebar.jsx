@@ -82,21 +82,23 @@
 
 
 import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom'; // Import useLocation and Link
 import './Sidebar.css';
 
 function Sidebar() {
   const [activePath, setActivePath] = useState('');
+  const location = useLocation(); // Get current route
 
   // Handle logout
   const handleLogout = () => {
-    localStorage.removeItem('authToken'); 
-    window.location.href = '/auth/login'; 
+    localStorage.removeItem('authToken');
+    window.location.href = '/auth/login'; // Full reload for logout
   };
 
+  // Update activePath when route changes
   useEffect(() => {
-    const currentPath = window.location.pathname;
-    setActivePath(currentPath);
-  }, []);
+    setActivePath(location.pathname);
+  }, [location.pathname]); // Re-run when pathname changes
 
   const navItems = [
     // { to: "/dashboard", icon: "🏠", text: "Overview" },
@@ -105,36 +107,34 @@ function Sidebar() {
     { to: "/payment-history", icon: "🧾", text: "Payment History" },
     { to: "/store", icon: "🛒", text: "Store" },
     { to: "/download", icon: "⬇", text: "Download" },
-
     { to: "/contact-us", icon: "📞", text: "Contact Us" },
     { to: "/raise-ticket", icon: "🎟️", text: "Raise Ticket" },
-    { to: "/faq", icon: "❓", text: "Faq" }
+    { to: "/faq", icon: "❓", text: "Faq" },
   ];
 
   return (
     <div className="sidebar">
       <div className="logo-container">
         <div className="logo">
-          <img 
-            className="full-logo" 
-            src="/-ZENLOGO.png" 
-            alt="Zencia.AI Logo" 
+          <img
+            className="full-logo"
+            src="/-ZENLOGO.png"
+            alt="Zencia.AI Logo"
           />
         </div>
       </div>
       <div className="menu-container">
         <nav>
           {navItems.map(({ to, icon, text }) => (
-            <a 
+            <Link
               key={to}
-              href={to} 
+              to={to}
               className={`menu-item ${activePath === to ? 'active' : ''}`}
             >
               <div className="menu-icon">{icon}</div>
               <span className="menu-text">{text}</span>
-            </a>
+            </Link>
           ))}
-          
 
           <a
             href="/auth/login"
