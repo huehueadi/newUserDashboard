@@ -419,7 +419,6 @@
     line-height: 1.6;
   }
   
-  /* Popup Styles */
   .popup-overlay {
     position: fixed;
     top: 0;
@@ -555,4 +554,20 @@
       padding: 6px 12px;
       font-size: 12px;
     }
+  }
+
+
+  .tool-description {
+    flex-grow: 1;
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 120px;
+    max-height: 120px;
   }

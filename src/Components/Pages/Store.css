@@ -1,0 +1,131 @@
+
+/* Zencia App Store Card Styles */
+.pricing-container {
+    background-color: var(--dark-bg);
+    color: var(--text-white);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  .tools-section {
+    padding: 40px 24px;
+  }
+  
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  
+  .pricing-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    padding: var(--padding);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+  }
+  
+  .pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+    background-color: var(--card-hover-bg);
+  }
+  
+  .tool-card-icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  
+  .tool-card-icon h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .tool-card-icon i {
+    font-size: 32px;
+    color: var(--purple);
+  }
+  
+  .pricing-card .tool-description {
+    flex-grow: 1;
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 120px;
+    max-height: 120px;
+  }
+  
+  .choose-plan-btn {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: auto;
+  }
+  
+  .choose-plan-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+  
+  .pricing-title-tag {
+    font-size: 16px;
+    color: var(--purple);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  
+  .pricing-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .tools-section h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--text-white);
+  }
+  
+  /* Upcoming Tools Specific Styles */
+  .tool-card-icon img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+  }
+  
+  @media (max-width: 768px) {
+    .tools-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .pricing-title {
+      font-size: 28px;
+    }
+  
+    .tools-section h2 {
+      font-size: 24px;
+    }
+  }

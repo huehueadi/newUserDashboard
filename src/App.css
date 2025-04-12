@@ -192,13 +192,13 @@ label {
   color: #4b5563;
 }
 
-input, select {
+/* input, select {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid #e4e4e7;
   border-radius: 4px;
   font-size: 1rem;
-}
+} */
 
 .card-input {
   position: relative;

@@ -410,6 +410,7 @@ function RaiseTicket() {
             <input
               type="file"
               id="ticket-attachment"
+              accept="image/*,application/pdf"
               className="file-input"
               onChange={handleInputChange}
               disabled={isSubmitting}

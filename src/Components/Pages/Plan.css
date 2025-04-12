@@ -68,14 +68,14 @@
     flex-direction: column;
     position: relative;
     border: 1px solid var(--border-color);
-    /* transition: transform 0.3s ease; */
+    transition: transform 0.3s ease;
   }
   
-  /* .pricing-card:hover {
+  .pricing-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   }
-   */
+  
   .pricing-card.popular {
     border: 1px solid transparent;
     background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,

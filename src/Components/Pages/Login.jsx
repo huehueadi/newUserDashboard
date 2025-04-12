@@ -146,6 +146,147 @@
 // export default Login;
 
 
+// import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
+// import axios from 'axios';
+// import React, { useState } from 'react';
+
+// function Login({ onSuccess }) {
+//   const [email, setEmail] = useState('');
+//   const [password, setPassword] = useState('');
+//   const [error, setError] = useState(null);
+//   const [successMessage, setSuccessMessage] = useState('');
+//   const [isLoading, setIsLoading] = useState(false);
+
+//   // Handle Google OAuth login
+//   const handleGoogleOAuth = async (response) => {
+//     try {
+//       const { credential } = response;
+//       const { data } = await axios.post('https://zencia-finalbackend.vercel.app/api/google-auth', {
+//         token: credential,
+//       });
+//       const { token, redirectPath } = data;
+//       localStorage.setItem('authToken', token); 
+//       setSuccessMessage('Google login successful');
+//       setTimeout(() => {
+//         onSuccess(redirectPath, token); 
+//       }, 1000);
+//     } catch (error) {
+//       console.error('Google Register Error:', error);
+//       setError(error.response?.data?.message || 'Google login failed');
+//     }
+//   };
+
+//   // Handle email/password login
+//   const handleSubmit = async (event) => {
+//     event.preventDefault();
+//     setIsLoading(true);
+//     setError(null);
+//     setSuccessMessage('');
+
+//     try {
+//       const { data } = await axios.get('https://zencia-finalbackend.vercel.app/api/login', {
+//         email,
+//         password,
+//       });
+//       localStorage.setItem('authToken', data.token);
+//       setIsLoading(false);
+//       setSuccessMessage('Login successful');
+//       setTimeout(() => {
+//         onSuccess(data.redirectPath || '/dashboard', data.token); 
+//       }, 1000);
+//     } catch (error) {
+//       console.error('Login error', error);
+//       setError(error.response?.data?.message || 'Login failed');
+//       setIsLoading(false);
+//     }
+//   };
+
+//   return (
+//     <div className="auth-login-container">
+//       <div className="login-container">
+        
+//         <div className="login-welcome-section">
+//           <div className="logo">
+//             <img src="/-ZENLOGO.png" alt="ZenLicense Logo" />
+//           </div>
+//           <div className="welcome-content">
+//             <h2 className="welcome-title">Welcome Back</h2>
+//             <GoogleOAuthProvider clientId="424370588012-s14oo8n1aqn4cjda2ahbmavnls1863rj.apps.googleusercontent.com">
+//               <GoogleLogin
+//                 onSuccess={handleGoogleOAuth}
+//                 onError={(error) => console.error('Google login error:', error)}
+//               />
+//             </GoogleOAuthProvider>
+//           </div>
+//         </div>
+
+//         {/* Right Column: Login Form */}
+//         <div className="login-form-section">
+//           <div className="login-header">
+//             <h1>Sign in</h1>
+//           </div>
+
+//           {successMessage && (
+//             <div className="success-message">
+//               <p>{successMessage}</p>
+//             </div>
+//           )}
+//           {error && (
+//             <div className="error-message">
+//               <p>{error}</p>
+//             </div>
+//           )}
+
+//           <form className="login-form" onSubmit={handleSubmit}>
+//             <div className="form-group">
+//               <label htmlFor="email">Email</label>
+//               <input
+//                 type="email"
+//                 id="email"
+//                 className="input-control"
+//                 placeholder="Enter your email"
+//                 value={email}
+//                 onChange={(e) => setEmail(e.target.value)}
+//                 required
+//               />
+//             </div>
+
+//             <div className="form-group">
+//               <label htmlFor="password">Password</label>
+//               <input
+//                 type="password"
+//                 id="password"
+//                 className="input-control"
+//                 placeholder="Enter your password"
+//                 value={password}
+//                 onChange={(e) => setPassword(e.target.value)}
+//                 required
+//               />
+//             </div>
+
+//             <button
+//               type="submit"
+//               className="btn btn-primary"
+//               id="login-button"
+//               disabled={isLoading}
+//             >
+//               {isLoading ? 'Signing In...' : 'Sign In'}
+//             </button>
+//           </form>
+
+//           <div className="login-footer">
+//             Don’t have an account? <a href="/auth/register" className="register-link">Sign up</a>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Login;
+
+
+
 import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 import axios from 'axios';
 import React, { useState } from 'react';
@@ -165,13 +306,13 @@ function Login({ onSuccess }) {
         token: credential,
       });
       const { token, redirectPath } = data;
-      localStorage.setItem('authToken', token); 
+      localStorage.setItem('authToken', token);
       setSuccessMessage('Google login successful');
       setTimeout(() => {
-        onSuccess(redirectPath, token); 
+        onSuccess(redirectPath, token);
       }, 1000);
     } catch (error) {
-      console.error('Google Register Error:', error);
+      console.error('Google Login Error:', error);
       setError(error.response?.data?.message || 'Google login failed');
     }
   };
@@ -188,15 +329,16 @@ function Login({ onSuccess }) {
         email,
         password,
       });
-      localStorage.setItem('authToken', data.token);
-      setIsLoading(false);
-      setSuccessMessage('Login successful');
+      const { token, redirectPath } = data;
+      localStorage.setItem('authToken', token);
+      setSuccessMessage(data.message || 'Login successful');
       setTimeout(() => {
-        onSuccess(data.redirectPath || '/dashboard', data.token); // Use redirectPath if provided, else default
+        onSuccess(redirectPath, token);
       }, 1000);
     } catch (error) {
-      console.error('Login error', error);
-      setError(error.response?.data?.message || 'Login failed');
+      console.error('Login Error:', error);
+      setError(error.response?.data?.message || 'Invalid email or password');
+    } finally {
       setIsLoading(false);
     }
   };
@@ -204,7 +346,7 @@ function Login({ onSuccess }) {
   return (
     <div className="auth-login-container">
       <div className="login-container">
-        
+        {/* Left Column: Welcome Section */}
         <div className="login-welcome-section">
           <div className="logo">
             <img src="/-ZENLOGO.png" alt="ZenLicense Logo" />
@@ -248,6 +390,7 @@ function Login({ onSuccess }) {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                disabled={isLoading}
               />
             </div>
 
@@ -261,6 +404,7 @@ function Login({ onSuccess }) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                disabled={isLoading}
               />
             </div>
 
