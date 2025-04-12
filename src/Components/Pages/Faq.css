@@ -162,7 +162,7 @@
     font-size: 16px;
   }
   
-  .contact-btn {
+  /* .contact-btn {
     background: var(--gradient);
     color: white;
     border: none;
@@ -172,7 +172,7 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-  }
+  } */
   
   .contact-btn:hover {
     transform: translateY(-3px);

@@ -141,7 +141,6 @@ import LicenseManagement from './Components/Pages/LicenseManagement';
 import OnboardingFlow from './Components/Pages/OnbaordingFlow';
 import PaymentGateway from './Components/Pages/PaymentGatway';
 import PaymentHistory from './Components/Pages/PaymentHistory';
-import Plan from './Components/Pages/Plan';
 import PlanSelection from './Components/Pages/PlanSelection';
 import RasieTicket from './Components/Pages/RasieTicket';
 import Store from './Components/Pages/Store';
@@ -181,7 +180,7 @@ function App() {
           />
           <Route
             path="plans"
-            element={<ProtectedRoute><Plan /></ProtectedRoute>}
+            element={<ProtectedRoute><Dashboard /></ProtectedRoute>}
           />
            <Route
             path="plan-selection"

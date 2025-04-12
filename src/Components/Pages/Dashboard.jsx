@@ -47,11 +47,11 @@
 //         return;
 //       }
   
-//       const response = await axios.get('https://zencia-finalbackend.vercel.app/api/hardware/hardwares-by-user', {
-//         headers: {
-//           'Authorization': `${authToken}`
-//         }
-//       });
+      // const response = await axios.get('https://zencia-finalbackend.vercel.app/api/hardware/hardwares-by-user', {
+      //   headers: {
+      //     'Authorization': `${authToken}`
+      //   }
+      // });
   
 //       const data = response.data;
   
@@ -427,8 +427,8 @@ const Plan = () => {
             </div>
             <div className="feature-item">
               <span className="feature-icon">✓</span>
-              Priority Support
-            </div>
+              All Personas Access            
+              </div>
           </div>
 
           <button
@@ -470,11 +470,15 @@ const Plan = () => {
             </div>
             <div className="feature-item">
               <span className="feature-icon">✓</span>
-              Priority Support
+              Tools access Upto One Year
             </div>
             <div className="feature-item">
               <span className="feature-icon">✓</span>
-              Personas for Business Workflows
+               Personas for Business Workflows
+            </div>
+            <div className="feature-item">
+              <span className="feature-icon">✓</span>
+              Ticket Support 
             </div>
           </div>
 
@@ -512,16 +516,14 @@ const Plan = () => {
             </div>
             <div className="feature-item">
               <span className="feature-icon">✓</span>
-              Advanced Customization
+              Advanced Software Customization
             </div>
           </div>
 
-          <button
-            className="choose-plan-btn contact-btn"
-            onClick={() => handlePlanSelect(premiumPlan._id, premiumPlan.name || "Premium")}
-          >
-            Contact Us <span className="arrow-icon">→</span>
-          </button>
+          <button className="choose-plan-btn"
+            onClick={() => navigate("/contact-us")}>
+             Choose This Plan <span className="arrow-icon">→</span>
+         </button>
         </div>
       </div>
     </div>
