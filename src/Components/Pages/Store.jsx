@@ -40,7 +40,7 @@ function Store() {
               <h3>Merge PDF</h3>
             </div>
             <p className="tool-description">
-              Merge PDF simplifies document consolidation by combining multiple PDF files into one unified output. Offering customizable page ordering, it’s an efficient solution for organizing reports, meeting minutes, or project files seamlessly.
+              Merge PDF simplifies document consolidation by combining multiple PDF files into one unified output. Offering customizable page ordering, it’s an efficient solution for organizing reports, meeting minutes.
             </p>
             <button
               className="choose-plan-btn gradient-btn"
@@ -135,7 +135,7 @@ function Store() {
               <h3>Memories.AI</h3>
             </div>
             <p className="tool-description">
-              Memories.AI enables users to upload and store past memories as PDFs, images, text, or voice recordings. Its advanced AI analyzes the content, allowing natural, engaging conversations that bring those moments vividly back to life.
+            Memories.AI lets users  upload and store past memories as PDFs, images, text, or voice recordings. Its advanced AI that brings those moments to life through natural, engaging conversations.
             </p>
             <button className="choose-plan-btn gradient-btn" style={{ marginTop: '32px' }}>
               Coming Soon
@@ -150,7 +150,7 @@ function Store() {
               <h3>M.O.M AI (Minutes of the Meetings)</h3>
             </div>
             <p className="tool-description">
-              These minutes summarize key points, decisions, and action items discussed during the meeting, presenting them in a single, well-organized document. With the ability to customize the order of content with help of Articfical Intelligence.
+              These minutes summarize key points, decisions, and action items discussed during the meeting, presenting them in a single, well-organized document. With the ability to customize the order of content with help of AI.
             </p>
             <button className="choose-plan-btn gradient-btn" style={{ marginTop: '32px' }}>
               Coming Soon
