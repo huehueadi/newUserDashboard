@@ -522,7 +522,7 @@ const Plan = () => {
 
           <button className="choose-plan-btn"
             onClick={() => navigate("/contact-us")}>
-             Choose This Plan <span className="arrow-icon">→</span>
+             Contact Us <span className="arrow-icon">→</span>
          </button>
         </div>
       </div>
