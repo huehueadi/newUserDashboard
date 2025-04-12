@@ -2042,3 +2042,279 @@
 // };
 
 // export default PlanSelection;
+
+
+
+
+
+// Plan Selection 
+
+
+
+// import React, { useEffect, useState } from 'react';
+// import { Link, useLocation, useNavigate } from 'react-router-dom';
+// import './HardwareSelection.css';
+
+// const PlanSelection = () => {
+//   const [selectedHWID, setSelectedHWID] = useState('');
+//   const [manualHWID, setManualHWID] = useState('');
+//   const [licenseKey, setLicenseKey] = useState('');
+//   const [message, setMessage] = useState('');
+//   const [messageType, setMessageType] = useState(''); // "success" or "error"
+//   const [hardwareList, setHardwareList] = useState([]);
+
+//   const location = useLocation();
+//   const navigate = useNavigate();
+//   const token = localStorage.getItem('authToken');
+
+//   const { planId, planName } = location.state || {};
+
+//   // Fetch hardware list on component mount
+//   useEffect(() => {
+//     const fetchHardwareList = async () => {
+//       try {
+//         const response = await axios.get('https://zencia-finalbackend.vercel.app/api/hardware/hardwares-by-user', {
+//           headers: {
+//             Authorization: `${token}`,
+//           },
+//         });
+//         setHardwareList(response.data.hardwareList || []);
+//       } catch (error) {
+//         console.error('Error fetching hardware list:', error);
+//         setMessage('Failed to fetch hardware list.');
+//         setMessageType('error');
+//       }
+//     };
+
+//     fetchHardwareList();
+//   }, [token]);
+
+//   const getEffectiveHWID = () => {
+//     return manualHWID.trim() || selectedHWID;
+//   };
+
+//   const registerHardware = async (hardwareId) => {
+//     try {
+//       const response = await axios.post(
+//         'https://zencia-finalbackend.vercel.app/api/hardware/register',
+//         {
+//           hardwareId,
+//           nickName: `Device-${Date.now()}`, // Optional, default value
+//         },
+//         {
+//           headers: {
+//             Authorization: `${token}`,
+//           },
+//         }
+//       );
+//       console.log('Hardware registered:', response.data);
+//       setHardwareList([...hardwareList, response.data.hardware]); // Update dropdown
+//     } catch (error) {
+//       if (error.response?.status === 400 && error.response?.data.message === 'Hardware ID already exists') {
+//         console.log('Hardware already registered, skipping save.');
+//       } else {
+//         throw error; // Re-throw other errors
+//       }
+//     }
+//   };
+
+//   const handleHWIDConfirm = async () => {
+//     const effectiveHWID = getEffectiveHWID();
+//     if (!effectiveHWID) {
+//       setMessage('Please select or enter a hardware ID.');
+//       setMessageType('error');
+//       return;
+//     }
+
+//     if (planName === 'Trial') {
+//       try {
+//         // Register hardware (without planId)
+//         await registerHardware(effectiveHWID);
+
+//         const licenseResponse = await axios.post(
+//           'https://zencia-finalbackend.vercel.app/api/license/trail-generate',
+//           {
+//             planId: planId,
+//             hardware_id: effectiveHWID,
+//             start_date: new Date().toISOString().split('T')[0],
+//           },
+//           {
+//             headers: {
+//               'Content-Type': 'application/json',
+//               Authorization: `${token}`,
+//             },
+//           }
+//         );
+
+//         if (licenseResponse.data.success) {
+//           setLicenseKey(licenseResponse.data.licenseKey);
+//           setMessage('License generated successfully!');
+//           setMessageType('success');
+//         } else {
+//           throw new Error(licenseResponse.data.message || 'Failed to generate license.');
+//         }
+//       } catch (error) {
+//         setMessage(`Failed to generate license: ${error.message}`);
+//         setMessageType('error');
+//       }
+//     }
+//   };
+
+//   const handleCheckoutPayment = async () => {
+//     const effectiveHWID = getEffectiveHWID();
+//     if (!effectiveHWID) {
+//       setMessage('Please select or enter a hardware ID.');
+//       setMessageType('error');
+//       return;
+//     }
+
+//     if (planName === 'Custom' || planName === 'Premium') {
+//       try {
+//         // Register hardware (without planId)
+//         await registerHardware(effectiveHWID);
+
+//         navigate(`/payment-gateway?planId=${planId}&hardwareId=${effectiveHWID}`, {
+//           state: { planId, planName, hardwareId: effectiveHWID },
+//         });
+//       } catch (error) {
+//         setMessage(`Failed to proceed: ${error.message}`);
+//         setMessageType('error');
+//       }
+//     }
+//   };
+
+//   const copyToClipboard = () => {
+//     navigator.clipboard.writeText(licenseKey);
+//     setMessage('License key copied to clipboard!');
+//     setMessageType('success');
+//   };
+
+//   const handleBack = () => {
+//     navigate(-1); // Go back to previous page
+//   };
+
+//   if (!planId || !planName) {
+//     return (
+//       <div className="dashboard-content-container no-plan-container">
+//         <div className="no-plan-message">
+//           <h3>No plan selected</h3>
+//           <p>Please go back and select a plan.</p>
+//           <button onClick={handleBack} className="btn-zencia">
+//             Go Back
+//           </button>
+//         </div>
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <div className="hardware-container">
+//       <div className="hardware-header">
+//         <div className="hardware-title-tag">Hardware Setup</div>
+//         <h1 className="hardware-title">Select or Enter Your Hardware ID</h1>
+//       </div>
+//       <div className="hardware-card">
+//         <button onClick={handleBack} className="btn-back">
+//           <svg
+//             xmlns="http://www.w3.org/2000/svg"
+//             width="20"
+//             height="20"
+//             viewBox="0 0 24 24"
+//             fill="none"
+//             stroke="currentColor"
+//             strokeWidth="2"
+//             strokeLinecap="round"
+//             strokeLinejoin="round"
+//           >
+//             <path d="M19 12H5M12 19l-7-7 7-7" />
+//           </svg>
+//           Back to Plans
+//         </button>
+
+//         <div className="plan-info">
+//           <h2 className="plan-selected-title">Selected Plan: {planName}</h2>
+//           <p className="plan-selected-description">
+//             {planName === 'Trial'
+//               ? 'Complete your trial activation by selecting a hardware ID'
+//               : planName === 'Custom'
+//               ? 'Proceed to payment after selecting a hardware ID'
+//               : 'Contact us after selecting a hardware ID'}
+//           </p>
+//         </div>
+
+//         <div className="form-group">
+//           <label htmlFor="hardware-select">Choose your device</label>
+//           <select 
+//             id="hardware-select"  
+
+//             value={selectedHWID}
+//             onChange={(e) => {
+//               setSelectedHWID(e.target.value);
+//               if (e.target.value) setManualHWID('');
+//             }}
+//           >
+//             <option value=""style={{ color: 'black' }}>Select a Hardware ID</option>
+//             {hardwareList.map((hw) => (
+//               <option key={hw._id} value={hw.hardwareId}>
+//                 {hw.nickName ? `${hw.hardwareId} (${hw.nickName})` : hw.hardwareId}
+//               </option>
+//             ))}
+//           </select>
+//         </div>
+
+//         <div className="form-group">
+//           <label htmlFor="manual-hardware-id">Or enter your Hardware ID manually</label>
+//           <input
+//             id="manual-hardware-id"
+//             type="text"
+//             value={manualHWID}
+//             onChange={(e) => {
+//               setManualHWID(e.target.value);
+//               if (e.target.value) setSelectedHWID('');
+//             }}
+//             placeholder="Enter Hardware ID"
+//           />
+//         </div>
+
+//         <div className="action-buttons">
+//           {(selectedHWID || manualHWID) && planName === 'Trial' && (
+//             <button className="action-btn" onClick={handleHWIDConfirm}>
+//               Generate License
+//             </button>
+//           )}
+//           {(selectedHWID || manualHWID) && (planName === 'Custom' || planName === 'Premium') && (
+//             <button className="action-btn" onClick={handleCheckoutPayment}>
+//               Proceed to Payment
+//             </button>
+//           )}
+//         </div>
+
+//         {message && (
+//           <div className={`message ${messageType}`}>
+//             <span>
+//               {message}
+//               {messageType === 'error' && message.includes('Failed to generate license') && (
+//                 <>
+//                   {' '}
+//                   <Link to="/license-management" style={{ color: '#007bff', textDecoration: 'underline' }}>
+//                     Go to Licenses
+//                   </Link>
+//                 </>
+//               )}
+//             </span>
+//           </div>
+//         )}
+//         {licenseKey && (
+//           <div className="license-key-container">
+//             <p className="license-key-text">License Key: {licenseKey}</p>
+//             <button className="copy-btn" onClick={copyToClipboard}>
+//               Copy to Clipboard
+//             </button>
+//           </div>
+//         )}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default PlanSelection;
