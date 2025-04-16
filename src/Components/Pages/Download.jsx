@@ -372,7 +372,7 @@ const Downloads = () => {
 
   const handleDownload = async () => {
     if (isUnderstandChecked) {
-      const downloadLink = 'https://download937.mediafire.com/jv1fplixcetgrcRywiYK462IMAK6V5UHnR-eIdPAvs7SNkKsWmtL_LOgCnk7_xKtK85UNGo6yhnSuVI1K5YvG0f8SbPrWeSXqqsyI7hwGKSz2Lf81zU7PMNt2YD7CK2JqAa_Lwete4cWtJfVklatHW_wfty5e_AHzSJQKatDL8gm9QQ/qth2ofvztlc2l0e/ZENCIA-2.0.0.zip';
+      const downloadLink = 'https://download943.mediafire.com/e8dvy446x6agqkKVqGp7WyCD5XHGDVrdnmQn4sgocyww4cijIA49DT5sWLvLbkZhgX2qZ5JUlxpW4hFZL_kosRuMcfD_ahcmhY6JABSQqBop87FTJlzx4OOedCzqOnHD-SF0kEJSmeYd5zBySz6cTMuZshC7sNdEo1gCyLTwO51KQRk/pmh0fba2zw17wzh/ZENCIA+2.0.3.zip';
       const link = document.createElement('a');
       link.href = downloadLink;
       link.download = 'zencia-windows-installer';
