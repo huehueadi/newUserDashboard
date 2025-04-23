@@ -386,7 +386,7 @@ const Downloads = () => {
           console.warn('No token found, skipping isDownloaded call');
           return;
         }
-        const response = await axios.put(
+        const response = await axios.post(
           'https://zencia-finalbackend.vercel.app/api/download',
           {},
           {
